@@ -14,33 +14,7 @@ Space complexity: O(n)
  * @param {string} string
  * @return {boolean}
  */
-const isUnique = function(string) {
+module.exports = function isUnique(string) {
     let set = new Set(string.split(''));
     return set.size === string.length;
 };
-
-let tests = [
-    {
-        input: ['abcde'],
-        output: true,
-    },
-    {
-        input: ['abcdeef'],
-        output: false,
-    },
-    {
-        input: ['aa'],
-        output: false,
-    },
-    {
-        input: [''],
-        output: true,
-    },
-];
-
-for(let i = 0; i < tests.length; i++) {
-    const {input, output} = tests[i];
-    const result = isUnique(...input);
-    let success = result === output;
-    console.log(`Test ${i}: ${success ? 'SUCCESS' : 'FAIL'}. Expected: '${output}' | calculated: '${result}'`);
-}
