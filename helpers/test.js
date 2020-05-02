@@ -1,4 +1,4 @@
-const {expect} = require('chai');
+const {assert} = require('chai');
 const {it, describe} = require('mocha');
 const _ = require('lodash');
 
@@ -8,14 +8,15 @@ const _ = require('lodash');
  * @param problem {string}      Problem name
  * @param tests {array}         An array of tests, [{input, output}]
  * @param solutions {array}     An array of solutions, objects {name: string, solver: function}
+ * @param comparer {string}     A string representing comparer algorithm. Defaults to "equal"
  */
-function startTest(chapter, problem, tests, solutions) {
+function startTest(chapter, problem, tests, solutions, comparer = 'equal') {
     describe(chapter, () => {
         describe(problem, () => {
             for (let solution of solutions) {
                 describe(solution.name, () => {
                     for (let test of tests) {
-                        runTest(chapter, problem, solution, test.input, test.output);
+                        runTest(chapter, problem, solution, test.input, test.output, comparer);
                     }
                 });
             }
@@ -23,11 +24,11 @@ function startTest(chapter, problem, tests, solutions) {
     });
 }
 
-function runTest(chapter, problem, solution, input, output) {
+function runTest(chapter, problem, solution, input, output, comparer = 'equal') {
     it(`inputs: ${JSON.stringify(input)}`, () => {
         let args = _.cloneDeep(input);
         let result = solution.solver(...args);
-        expect(result).to.equal(output);
+        assert[comparer](result, output);
     });
 }
 
