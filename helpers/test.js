@@ -24,7 +24,7 @@ function startTest(chapter, problem, tests, solutions) {
 }
 
 function runTest(chapter, problem, solution, input, output) {
-    it(`inputs: ${JSON.stringify(...input)}`, () => {
+    it(`inputs: ${JSON.stringify(input)}`, () => {
         let args = _.cloneDeep(input);
         let result = solution.solver(...args);
         expect(result).to.equal(output);
