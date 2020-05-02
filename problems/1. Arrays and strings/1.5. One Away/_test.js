@@ -16,9 +16,13 @@ const tests = [
 ];
 const solutions = [
     {
-        name: 'two-pointers, Check each char in input using two pointers approach',
+        name: 'two-pointers, Check each char in input using two pointers approach, two separate loops',
         solver: require('./two-pointers'),
-    }
+    },
+    {
+        name: 'two-pointers-concise, Check each char in input using two pointers approach, one loop',
+        solver: require('./two-pointers-concise'),
+    },
 ];
 
 startTest(chapter, problem, tests, solutions);
