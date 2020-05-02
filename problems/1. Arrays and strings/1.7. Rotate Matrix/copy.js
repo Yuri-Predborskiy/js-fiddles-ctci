@@ -1,5 +1,5 @@
 /*
-Copy matrix while rotating it
+Create a rotated copy of matrix
 
 Time complexity: O(n), single pass
 Space complexity: O(n)

@@ -1,8 +1,10 @@
 /*
 Rotate NxN matrix in place, using O(1) space
+Swap numbers using a single temp variable
 
 Time complexity: O(n), single pass
 Space complexity: O(1), in place
+Cognitive complexity: mind-blowing
  */
 
 /**
