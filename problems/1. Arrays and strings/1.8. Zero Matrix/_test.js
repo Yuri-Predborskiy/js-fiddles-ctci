@@ -72,4 +72,4 @@ const solutions = [
 ];
 const comparer = 'deepEqual';
 
-startTest(chapter, problem, tests, solutions, comparer);
+startTest(chapter, problem, tests, solutions, {comparer});
