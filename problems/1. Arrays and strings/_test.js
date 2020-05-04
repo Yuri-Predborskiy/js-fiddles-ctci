@@ -4,6 +4,51 @@ const assertTypes = require('../../helpers/assert-types');
 const inputProcessors = require('../../helpers/input-processors');
 
 describe('Chapter 1. Arrays and strings', () => {
+    describe('Problem 1.1. Is Unique', () => {
+        const tests = [
+            {input: 'abcde', output: true},
+            {input: 'abcdeef', output: false},
+            {input: 'aa', output: false},
+            {input: '', output: true},
+        ];
+        const processInput = inputProcessors.doNothing;
+        const compareFunction = assertTypes.equal;
+
+        describe('set-loop, Go over the string and save every unique character. Exit if it has been seen before', () => {
+            const solver = require('./1.1. Is Unique/set-loop');
+
+            for (let test of tests) {
+                it(`inputs: ${JSON.stringify(test.input)}`, () => {
+                    const processedInput = processInput(test.input);
+                    let result = solver(processedInput);
+                    assert[compareFunction](result, test.output);
+                });
+            }
+        });
+        describe('set-simple, Initialize Set with input and compare its size vs string length (should be the same)', () => {
+            const solver = require('./1.1. Is Unique/set-simple');
+
+            for (let test of tests) {
+                it(`inputs: ${JSON.stringify(test.input)}`, () => {
+                    const processedInput = processInput(test.input);
+                    let result = solver(processedInput);
+                    assert[compareFunction](result, test.output);
+                });
+            }
+        });
+        describe('brute-force, Brute force - for each character check if there are same characters later', () => {
+            const solver = require('./1.1. Is Unique/brute-force');
+
+            for (let test of tests) {
+                it(`inputs: ${JSON.stringify(test.input)}`, () => {
+                    const processedInput = processInput(test.input);
+                    let result = solver(processedInput);
+                    assert[compareFunction](result, test.output);
+                });
+            }
+        });
+    });
+
     describe('Problem 1.2. Check Permutation', () => {
         const tests = [
             {input: ['abcde', 'bacde'], output: true},
