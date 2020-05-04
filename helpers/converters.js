@@ -1,6 +1,22 @@
+const _ = require('lodash');
+
 const LinkedList = require('./linked-list');
 const DoublyLinkedList = require('./doubly-linked-list');
 
+/**
+ * Make a deep clone of input, for example, an array or object. Requires Lodash
+ * @param input {*}
+ * @returns {*}
+ */
+function cloneDeep(input) {
+    return _.cloneDeep(input);
+}
+
+/**
+ * Convert array into a linked list
+ * @param values {array}
+ * @returns {LinkedList}
+ */
 function convertArrayToLinkedList(values) {
     const list = new LinkedList();
     for (const val of values) {
@@ -9,6 +25,11 @@ function convertArrayToLinkedList(values) {
     return list;
 }
 
+/**
+ * Convert linked list into an array
+ * @param list {LinkedList}
+ * @returns {[]}
+ */
 function convertLinkedListToArray(list) {
     const array = [];
     let node = list.head;
@@ -20,6 +41,7 @@ function convertLinkedListToArray(list) {
 }
 
 module.exports = {
+    cloneDeep,
     convertArrayToLinkedList,
     convertLinkedListToArray,
 };
