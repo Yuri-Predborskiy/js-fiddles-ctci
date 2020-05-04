@@ -13,11 +13,12 @@ Space complexity: O(1) in-place replacement, O(n) for returning a string
  */
 
 /**
- * @param {array} charArray
+ * @param {string} string
  * @param {number} length
  * @return {string}
  */
-module.exports = function URLify(charArray, length) {
+module.exports = function URLify(string, length) {
+    const charArray = string.split('');
     let left = length - 1;
     let right = charArray.length - 1;
 

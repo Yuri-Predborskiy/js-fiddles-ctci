@@ -4,6 +4,79 @@ const assertTypes = require('../../helpers/assert-types');
 const inputProcessors = require('../../helpers/input-processors');
 
 describe('Chapter 1. Arrays and strings', () => {
+    describe('Problem 1.3. URLify', () => {
+        const tests = [
+            {input: ['Mr John Smith    ', 13], output: 'Mr%20John%20Smith'},
+            {input: ['', 0], output: ''},
+            {input: ['test', 4], output: 'test'},
+            {input: ['   ', 1], output: '%20'},
+        ];
+        const processInput = inputProcessors.doNothing;
+        const compareFunction = assertTypes.equal;
+
+        describe('two-pointers-back, Use two pointers and iterate from the back', () => {
+            const solver = require('./1.3. URLify/two-pointers-back');
+
+            for (let test of tests) {
+                it(`inputs: ${JSON.stringify(test.input)}`, () => {
+                    const processedInput = processInput(test.input);
+                    let result = solver(...processedInput);
+                    assert[compareFunction](result, test.output);
+                });
+            }
+        });
+        describe('array-of-strings, Join array of strings. Copy letters, replace spaces with "%20" (JS only)', () => {
+            const solver = require('./1.3. URLify/array-of-strings');
+
+            for (let test of tests) {
+                it(`inputs: ${JSON.stringify(test.input)}`, () => {
+                    const processedInput = processInput(test.input);
+                    let result = solver(...processedInput);
+                    assert[compareFunction](result, test.output);
+                });
+            }
+        });
+    });
+
+    describe('Problem 1.4. Palindrome Permutation', () => {
+        const tests = [
+            {input: 'tact coa', output: true},
+            {input: 'palindrome', output: false},
+            {input: 'Don’t nod.', output: true},
+            {input: 'Donodnt', output: true},
+            {input: '', output: true},
+            {input: 'a', output: true},
+            {input: 'aa', output: true},
+            {input: 'aba', output: true},
+            {input: 'ab', output: false},
+        ];
+        const processInput = inputProcessors.doNothing;
+        const compareFunction = assertTypes.equal;
+
+        describe('map-count, Using map, count items. There should be no more than 1 unique letter', () => {
+            const solver = require('./1.4. Palindrome Permutation/map-count');
+
+            for (let test of tests) {
+                it(`inputs: ${JSON.stringify(test.input)}`, () => {
+                    const processedInput = processInput(test.input);
+                    let result = solver(processedInput);
+                    assert[compareFunction](result, test.output);
+                });
+            }
+        });
+        describe('sort, Sort the string and count if every char repeats exactly twice, max 1 unique char', () => {
+            const solver = require('./1.4. Palindrome Permutation/sort');
+
+            for (let test of tests) {
+                it(`inputs: ${JSON.stringify(test.input)}`, () => {
+                    const processedInput = processInput(test.input);
+                    let result = solver(processedInput);
+                    assert[compareFunction](result, test.output);
+                });
+            }
+        });
+    });
+
     describe('Problem 1.5. One Away', () => {
         const tests = [
             {input: ['pale', 'ple'], output: true},
