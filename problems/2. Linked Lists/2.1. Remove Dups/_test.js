@@ -13,17 +13,17 @@ const processResult = convertLinkedListToArray;
 
 describe('Chapter 2. Linked Lists', () => {
     describe('Problem 2.1. Remove Dups', () => {
-        // describe('no-extra-space, Remove duplicate list nodes without using extra space', () => {
-        //     const solver = require('./no-extra-space');
-        //
-        //     for (let test of tests) {
-        //         it(`inputs: ${JSON.stringify(test.input)}`, () => {
-        //             let args = processInputs(test.input);
-        //             let result = processResult(solver(args));
-        //             assert.deepEqual(result, test.output);
-        //         });
-        //     }
-        // });
+        describe('no-extra-space, Remove duplicate list nodes without using extra space', () => {
+            const solver = require('./no-extra-space');
+
+            for (let test of tests) {
+                it(`inputs: ${JSON.stringify(test.input)}`, () => {
+                    let args = processInputs(test.input);
+                    let result = processResult(solver(args));
+                    assert.deepEqual(result, test.output);
+                });
+            }
+        });
         describe('set, Remove duplicates using a dictionary of elements', () => {
             const solver = require('./set');
 
