@@ -4,6 +4,46 @@ const assertTypes = require('../../helpers/assert-types');
 const inputProcessors = require('../../helpers/input-processors');
 
 describe('Chapter 1. Arrays and strings', () => {
+    describe('Problem 1.5. One Away', () => {
+        const tests = [
+            {input: ['pale', 'ple'], output: true},
+            {input: ['pale', 'pale'], output: true},
+            {input: ['pales', 'pale'], output: true},
+            {input: ['bale', 'pale'], output: true},
+            {input: ['bake', 'pale'], output: false},
+            {input: ['b', ''], output: true},
+            {input: ['', ''], output: true},
+            {input: ['', 'p'], output: true},
+            {input: ['b', 'p'], output: true},
+            {input: ['bb', 'p'], output: false},
+        ];
+        const processInput = inputProcessors.doNothing;
+        const compareFunction = assertTypes.equal;
+
+        describe('two-pointers, Check each char in input using two pointers approach, two separate loops', () => {
+            const solver = require('./1.5. One Away/two-pointers');
+
+            for (let test of tests) {
+                it(`inputs: ${JSON.stringify(test.input)}`, () => {
+                    const processedInput = processInput(test.input);
+                    let result = solver(...processedInput);
+                    assert[compareFunction](result, test.output);
+                });
+            }
+        });
+        describe('two-pointers-concise, Check each char in input using two pointers approach, one loop', () => {
+            const solver = require('./1.5. One Away/two-pointers-concise');
+
+            for (let test of tests) {
+                it(`inputs: ${JSON.stringify(test.input)}`, () => {
+                    const processedInput = processInput(test.input);
+                    let result = solver(...processedInput);
+                    assert[compareFunction](result, test.output);
+                });
+            }
+        });
+    });
+
     describe('Problem 1.6. String Compression', () => {
         const tests = [
             {input: 'aabcccccaaa', output: 'a2b1c5a3'},
