@@ -14,10 +14,10 @@ const solutions = [
     //     name: 'no-extra-space, Remove duplicates without using extra space',
     //     solver: require('./no-extra-space'),
     // },
-    {
-        name: 'set, Remove duplicates using a dictionary of elements',
-        solver: require('./set'),
-    },
+    // {
+    //     name: 'set, Remove duplicates using a dictionary of elements',
+    //     solver: require('./set'),
+    // },
 ];
 const options = {
     comparer: 'deepEqual',
