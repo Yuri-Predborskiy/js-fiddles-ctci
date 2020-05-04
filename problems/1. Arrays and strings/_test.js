@@ -4,6 +4,55 @@ const assertTypes = require('../../helpers/assert-types');
 const inputProcessors = require('../../helpers/input-processors');
 
 describe('Chapter 1. Arrays and strings', () => {
+    describe('Problem 1.2. Check Permutation', () => {
+        const tests = [
+            {input: ['abcde', 'bacde'], output: true},
+            {input: ['aa', 'aab'], output: false},
+            {input: ['', ''], output: true},
+            {input: ['aa', 'a'], output: false},
+            {input: ['aa', 'ab'], output: false},
+            {input: ['ab', 'ba'], output: true},
+            {input: ['aa', ''], output: false},
+            {input: ['tea', 'ate'], output: true},
+        ];
+        const processInput = inputProcessors.doNothing;
+        const compareFunction = assertTypes.equal;
+
+        describe('brute-force, Brute force - for each letter in left string, find a match in the right string', () => {
+            const solver = require('./1.2. Check Permutation/brute-force');
+
+            for (let test of tests) {
+                it(`inputs: ${JSON.stringify(test.input)}`, () => {
+                    const processedInput = processInput(test.input);
+                    let result = solver(...processedInput);
+                    assert[compareFunction](result, test.output);
+                });
+            }
+        });
+        describe('map, Map of strings - compare the number of times each char from string 1 appears in string 2', () => {
+            const solver = require('./1.2. Check Permutation/map');
+
+            for (let test of tests) {
+                it(`inputs: ${JSON.stringify(test.input)}`, () => {
+                    const processedInput = processInput(test.input);
+                    let result = solver(...processedInput);
+                    assert[compareFunction](result, test.output);
+                });
+            }
+        });
+        describe('sort, Sort both strings, then compare character by character', () => {
+            const solver = require('./1.2. Check Permutation/sort');
+
+            for (let test of tests) {
+                it(`inputs: ${JSON.stringify(test.input)}`, () => {
+                    const processedInput = processInput(test.input);
+                    let result = solver(...processedInput);
+                    assert[compareFunction](result, test.output);
+                });
+            }
+        });
+    });
+
     describe('Problem 1.3. URLify', () => {
         const tests = [
             {input: ['Mr John Smith    ', 13], output: 'Mr%20John%20Smith'},
