@@ -4,6 +4,30 @@ const assertTypes = require('../../helpers/assert-types');
 const inputProcessors = require('../../helpers/input-processors');
 
 describe('Chapter 1. Arrays and strings', () => {
+    describe('Problem 1.6. String Compression', () => {
+        const tests = [
+            {input: 'aabcccccaaa', output: 'a2b1c5a3'},
+            {input: 'abc', output: 'abc'},
+            {input: 'aabbcc', output: 'aabbcc'},
+            {input: '', output: ''},
+            {input: 'aaAAaaaaaBBBbbbcd', output: 'a2A2a5B3b3c1d1'},
+        ];
+        const processInput = inputProcessors.doNothing;
+        const compareFunction = assertTypes.equal;
+
+        describe('linear, Create a new string by iterating over input', () => {
+            const solver = require('./1.6. String Compression/linear');
+
+            for (let test of tests) {
+                it(`inputs: ${JSON.stringify(test.input)}`, () => {
+                    const processedInput = processInput(test.input);
+                    let result = solver(processedInput);
+                    assert[compareFunction](result, test.output);
+                });
+            }
+        });
+    });
+
     describe('Problem 1.7. Rotate Matrix', () => {
         const tests = [
             {
