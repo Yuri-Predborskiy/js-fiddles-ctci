@@ -1,20 +1,42 @@
 /*
-Write every character in the string into a Set (when defining the set).
-If set size = string length, every item is unique.
-This solution uses JS Set property - when an item is added which is already in the Set, the item is effectively ignored
-If you initialize a Set with an array of characters (string.split('')), all unique characters will be added to the Set
-Non-unique characters will be ignored.
-Thus, if Set size is equal to string length, string has only unique characters
+Iterate over linked list, starting with each node. Two runners approach
+One (slow) points at original node.
+Second (fast) moves forward one node at a time
+If fast node value is the same as slow node value, delete that node (set prev to prev.next)
 
-Time complexity: O(n)
-Space complexity: O(n)
+This solution is slow but does not require extra memory
+
+Time complexity: O(n^2)
+Space complexity: O(1)
  */
 
 /**
- * @param {string} string
- * @return {boolean}
+ * @param {LinkedList} list
+ * @return {LinkedList}
  */
-module.exports = function isUnique(string) {
-    let set = new Set(string.split(''));
-    return set.size === string.length;
+module.exports = function removeDups(list) {
+    if (!list.head) {
+        return list;
+    }
+    let slow = list.head;
+    let fast = slow.next;
+    let last = slow;
+
+    while (slow) {
+        while (fast) {
+            if (fast.val === slow.val) {
+                last.next = fast.next;
+            } else {
+                last = fast;
+            }
+            fast = fast.next;
+        }
+        slow = slow.next;
+        if (slow) {
+            fast = slow.next;
+            last = slow;
+        }
+    }
+
+    return list;
 };
