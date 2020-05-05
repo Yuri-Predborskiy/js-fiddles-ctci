@@ -63,4 +63,21 @@ describe('Chapter 2. Linked Lists', () => {
             testRunner(tests, solver, options);
         });
     });
+
+    describe('Problem 2.4. Partition', () => {
+        const tests = [
+            {input: [[1,2,5,1,2,1], 3], output: [1,2,1,2,1,5]},
+            {input: [[1,2,3,2,3], 4], output: [1,2,3,2,3]},
+        ];
+        const options = {
+            processInput: (input) => [convertArrayToLinkedList(input[0]), input[1]],
+            processOutput: (output) => convertLinkedListToArray(output),
+            compareType: assertTypes.deepEqual
+        };
+
+        describe('two-runners, Two runners, one looking for nodes to swap, second looking for place to swap to', () => {
+            const solver = require('./2.4. Partition/two-runners');
+            testRunner(tests, solver, options);
+        });
+    });
 });
