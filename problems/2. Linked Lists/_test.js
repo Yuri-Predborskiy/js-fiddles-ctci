@@ -26,4 +26,23 @@ describe('Chapter 2. Linked Lists', () => {
             testRunner(tests, solver, options);
         });
     });
+
+    describe('Problem 2.2. Return Kth to Last', () => {
+        const tests = [
+            {input: [[1,2,3,4,2,3,4,1,5], 3], output: 4},
+            {input: [[1,2,3,4,2,3,4,1,5], 1], output: 5},
+        ];
+        const options = {
+            processInput: (input) => [convertArrayToLinkedList(input[0]), input[1]],
+        };
+
+        describe('size, Iterate twice, first time count nodes, second time stop at desired node', () => {
+            const solver = require('./2.2. Return Kth to Last/size');
+            testRunner(tests, solver, options);
+        });
+        describe('two-runners, Have two runners, second N nodes behind first, return value of 2nd runner', () => {
+            const solver = require('./2.2. Return Kth to Last/two-runners');
+            testRunner(tests, solver, options);
+        });
+    });
 });
