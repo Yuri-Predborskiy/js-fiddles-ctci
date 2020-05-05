@@ -45,4 +45,22 @@ describe('Chapter 2. Linked Lists', () => {
             testRunner(tests, solver, options);
         });
     });
+
+    describe('Problem 2.3. Delete Middle Node', () => {
+        const tests = [
+            {input: [[1,2,3], 2], output: [1,3]},
+            {input: [[1,2,3,4,5], 4], output: [1,2,3,5]},
+            {input: [['a','b','c','d'], 3], output: ['a','b','d']},
+        ];
+        const options = {
+            processInput: (input) => [convertArrayToLinkedList(input[0]), input[1]],
+            processOutput: (output) => convertLinkedListToArray(output),
+            compareType: assertTypes.deepEqual
+        };
+
+        describe('size, Iterate twice, first time count nodes, second time stop at desired node', () => {
+            const solver = require('./2.3. Delete Middle Node/replace');
+            testRunner(tests, solver, options);
+        });
+    });
 });
