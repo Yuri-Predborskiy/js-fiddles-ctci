@@ -114,4 +114,20 @@ describe('Chapter 2. Linked Lists', () => {
             testRunner(tests, solver, options);
         });
     });
+
+    describe('Problem 2.6. Palindrome', () => {
+        const tests = [
+            {input: ['a','b','c','b','a'], output: true},
+            {input: ['a','b','c','b'], output: false},
+            {input: [], output: true},
+        ];
+        const options = {
+            processInput: (input) => [convertArrayToLinkedList(input)],
+        };
+
+        describe('array, Save all values into an array and check if it is palindrome', () => {
+            const solver = require('./2.6. Palindrome/array');
+            testRunner(tests, solver, options);
+        });
+    });
 });
