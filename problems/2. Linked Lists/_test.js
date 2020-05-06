@@ -92,7 +92,7 @@ describe('Chapter 2. Linked Lists', () => {
             compareType: assertTypes.deepEqual
         };
 
-        describe('two-runners, Two runners, one looking for nodes to swap, second looking for place to swap to', () => {
+        describe('two-runners, Go over one node at a time and sum their values', () => {
             const solver = require('./2.5.1. Sum Lists/two-runners');
             testRunner(tests, solver, options);
         });
@@ -109,7 +109,7 @@ describe('Chapter 2. Linked Lists', () => {
             compareType: assertTypes.deepEqual
         };
 
-        describe('arrays, Two runners, one looking for nodes to swap, second looking for place to swap to', () => {
+        describe('arrays, Save values into arrays, then iterate over arrays to sum up numbers', () => {
             const solver = require('./2.5.2. Sum Lists - follow up/arrays');
             testRunner(tests, solver, options);
         });
