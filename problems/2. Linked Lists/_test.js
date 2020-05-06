@@ -1,7 +1,11 @@
 const {describe} = require('mocha');
 const assertTypes = require('../../helpers/assert-types');
-const {convertArrayToLinkedList, convertLinkedListToArray} = require('../../helpers/converters');
 const testRunner = require('../../helpers/test-runner');
+const {
+    convertArrayToLinkedList,
+    convertArrayToDoublyLinkedList,
+    convertLinkedListToArray
+} = require('../../helpers/converters');
 
 describe('Chapter 2. Linked Lists', () => {
     describe('Problem 2.1. Remove Dups', () => {
@@ -119,11 +123,19 @@ describe('Chapter 2. Linked Lists', () => {
         const tests = [
             {input: ['a','b','c','b','a'], output: true},
             {input: ['a','b','c','b'], output: false},
+            {input: [1,2,2,1], output: true},
+            {input: [1,1], output: true},
+            {input: [false], output: true}, // sometimes false is true
             {input: [], output: true},
         ];
         const options = {
-            processInput: (input) => [convertArrayToLinkedList(input)],
+            processInput: (input) => [convertArrayToDoublyLinkedList(input)],
         };
+
+        describe('two-runners, If input is in a doubly linked list, use two runners approach', () => {
+            const solver = require('./2.6. Palindrome/two-runners');
+            testRunner(tests, solver, options);
+        });
 
         describe('array, Save all values into an array and check if it is palindrome', () => {
             const solver = require('./2.6. Palindrome/array');

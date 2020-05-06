@@ -7,22 +7,18 @@ Space complexity: O(1)
  */
 
 /**
- * @param {LinkedList} leftList     Linked list that will be partitioned
- * @param {LinkedList} rightList    Linked list that will be partitioned
- * @return {LinkedList}
+ * @param {DoublyLinkedList} list
+ * @return {boolean}
  */
-module.exports = function sumLists(leftList, rightList) {
-    let left = leftList.head, right = rightList.head, remainder = 0;
-    let list = new LinkedList();
-    while (left || right || remainder) {
-        const leftVal = left ? left.val : 0;
-        const rightVal = right ? right.val : 0;
-        const num = leftVal + rightVal + remainder;
-        remainder = Math.floor(num / 10);
-        list.appendAtTail(num % 10);
-        left = left ? left.next : null;
-        right = right ? right.next : null;
+module.exports = function palindrome(list) {
+    let left = list.head, right = list.tail, last = null;
+    while (left && left !== right && last !== right) {
+        if (left.val !== right.val) {
+            return false;
+        }
+        last = left;
+        left = left.next;
+        right = right.prev;
     }
-
-    return list;
+    return true;
 };

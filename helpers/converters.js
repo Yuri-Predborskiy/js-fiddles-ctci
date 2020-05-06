@@ -26,6 +26,19 @@ function convertArrayToLinkedList(values) {
 }
 
 /**
+ * Convert array into a linked list
+ * @param values {array}
+ * @returns {DoublyLinkedList}
+ */
+function convertArrayToDoublyLinkedList(values) {
+    const list = new DoublyLinkedList();
+    for (const val of values) {
+        list.appendAtTail(val);
+    }
+    return list;
+}
+
+/**
  * Convert linked list into an array
  * @param list {LinkedList}
  * @returns {[]}
@@ -43,5 +56,6 @@ function convertLinkedListToArray(list) {
 module.exports = {
     cloneDeep,
     convertArrayToLinkedList,
+    convertArrayToDoublyLinkedList,
     convertLinkedListToArray,
 };
