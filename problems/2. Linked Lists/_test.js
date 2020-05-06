@@ -152,6 +152,8 @@ describe('Chapter 2. Linked Lists', () => {
         ];
         const options = {
             processInput: (input) => {
+                // combine two lists at index provided at input[2]
+                // if input[2] = -1, do not link lists
                 const left = convertArrayToLinkedList(input[0]);
                 const right = convertArrayToLinkedList(input[1]);
                 if (input[2] > 0) {
@@ -175,6 +177,8 @@ describe('Chapter 2. Linked Lists', () => {
     describe('Problem 2.8. Loop detection', () => {
         const tests = [
             {input: [[1,2,3,4,5], 2], output: 3},
+            {input: [[1,2,3], 1], output: 2},
+            {input: [[1,2], 1], output: 2},
             {input: [[1,2,3,4,5], -1], output: null}
         ];
         const options = {
