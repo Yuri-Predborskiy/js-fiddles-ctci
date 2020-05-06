@@ -12,7 +12,7 @@ module.exports = function testRunner(tests, solver, options = {}) {
     let {compareType, processInput, processOutput} = options;
     compareType = compareType || compareTypes.equal;
     for (const test of tests) {
-        it(`inputs: ${JSON.stringify(test.input)}`, () => {
+        it(`inputs: ${JSON.stringify(test.input)} should equal outputs: ${JSON.stringify(test.output)}`, () => {
             const processedInput = processInput ? processInput(test.input) : test.input;
             const result = solver(...processedInput);
             const myOutput = processOutput ? processOutput(result) : result;

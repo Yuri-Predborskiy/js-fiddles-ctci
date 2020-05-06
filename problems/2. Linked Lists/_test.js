@@ -80,4 +80,38 @@ describe('Chapter 2. Linked Lists', () => {
             testRunner(tests, solver, options);
         });
     });
+
+    describe('Problem 2.5.1. Sum Lists', () => {
+        const tests = [
+            {input: [[7,1,6], [5,9,2]], output: [2,1,9]},
+            {input: [[7,9], [5]], output: [2,0,1]},
+        ];
+        const options = {
+            processInput: (input) => input.map(x => convertArrayToLinkedList(x)),
+            processOutput: (output) => convertLinkedListToArray(output),
+            compareType: assertTypes.deepEqual
+        };
+
+        describe('two-runners, Two runners, one looking for nodes to swap, second looking for place to swap to', () => {
+            const solver = require('./2.5.1. Sum Lists/two-runners');
+            testRunner(tests, solver, options);
+        });
+    });
+
+    describe('Problem 2.5.2. Sum Lists - follow up', () => {
+        const tests = [
+            {input: [[6,1,7], [2,9,5]], output: [9,1,2]},
+            {input: [[9,7], [5]], output: [1,0,2]},
+        ];
+        const options = {
+            processInput: (input) => input.map(x => convertArrayToLinkedList(x)),
+            processOutput: (output) => convertLinkedListToArray(output),
+            compareType: assertTypes.deepEqual
+        };
+
+        describe('arrays, Two runners, one looking for nodes to swap, second looking for place to swap to', () => {
+            const solver = require('./2.5.2. Sum Lists - follow up/arrays');
+            testRunner(tests, solver, options);
+        });
+    });
 });
