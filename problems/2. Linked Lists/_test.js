@@ -171,4 +171,43 @@ describe('Chapter 2. Linked Lists', () => {
             testRunner(tests, solver, options);
         });
     });
+
+    describe('Problem 2.8. Loop detection', () => {
+        const tests = [
+            {input: [[1,2,3,4,5], 2], output: 3},
+            {input: [[1,2,3,4,5], -1], output: null}
+        ];
+        const options = {
+            processInput: (input) => {
+                // create a looping linked list. Last node is connected to node at input[1] index
+                // if input[1] === -1, there is no loop
+                const list = convertArrayToLinkedList(input[0]);
+                if (input[1] !== -1) {
+                    let node = list.head, index = 0;
+                    while (node.next) {
+                        node = node.next;
+                    }
+                    const last = node;
+                    node = list.head;
+                    while (node) {
+                        node = node.next;
+                        if (++index === input[1]) {
+                            last.next = node;
+                            break;
+                        }
+                    }
+                }
+                return [list];
+            },
+        };
+
+        describe('set, Check if linked list has a loop using a Set of nodes', () => {
+            const solver = require('./2.8. Loop Detection/set');
+            testRunner(tests, solver, options);
+        });
+        describe('set, Check if linked list has a loop using a Set of nodes', () => {
+            const solver = require('./2.8. Loop Detection/two-runners');
+            testRunner(tests, solver, options);
+        });
+    });
 });
