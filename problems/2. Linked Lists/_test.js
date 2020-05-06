@@ -142,4 +142,33 @@ describe('Chapter 2. Linked Lists', () => {
             testRunner(tests, solver, options);
         });
     });
+
+    describe('Problem 2.7. Intersection', () => {
+        const tests = [
+            {input: [[1,0,2,3],[4,5,'2','3'],2], output: true},
+            {input: [[1,2,3],[4,'2','3'],1], output: true},
+            {input: [[1,2],[1,2],-1], output: false},
+            {input: [[1],[],-1], output: false},
+        ];
+        const options = {
+            processInput: (input) => {
+                const left = convertArrayToLinkedList(input[0]);
+                const right = convertArrayToLinkedList(input[1]);
+                if (input[2] > 0) {
+                    let index = 0, leftNode = left.head, rightNode = right.head;
+                    while (index++ < input[2] - 1) {
+                        leftNode = leftNode.next;
+                        rightNode = rightNode.next;
+                    }
+                    rightNode.next = leftNode.next;
+                }
+                return [left, right];
+            },
+        };
+
+        describe('set, Check for intersection using two runners and a set of nodes', () => {
+            const solver = require('./2.7. Intersection/set');
+            testRunner(tests, solver, options);
+        });
+    });
 });
