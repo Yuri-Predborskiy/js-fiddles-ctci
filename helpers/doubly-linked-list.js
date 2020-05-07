@@ -5,6 +5,7 @@ const ListNode = function(val) {
 
 const DoublyLinkedList = function() {
     this.head = this.tail = null;
+    this.size = 0;
 };
 
 DoublyLinkedList.prototype.appendAtHead = function(value) {
@@ -16,6 +17,7 @@ DoublyLinkedList.prototype.appendAtHead = function(value) {
     } else { // there is no tail. This is possible only if linked list is empty
         this.head = this.tail = node;
     }
+    this.size++;
 };
 
 DoublyLinkedList.prototype.appendAtTail = function(value) {
@@ -27,6 +29,7 @@ DoublyLinkedList.prototype.appendAtTail = function(value) {
     } else { // there is no tail. This is possible only if linked list is empty
         this.tail = this.head = node;
     }
+    this.size++;
 };
 
 DoublyLinkedList.prototype.delete = function(node) {
@@ -42,6 +45,7 @@ DoublyLinkedList.prototype.delete = function(node) {
     if (this.tail === node) {
         this.tail = node.prev;
     }
+    this.size--;
 };
 
 DoublyLinkedList.prototype.getAtHead = function() {
@@ -50,6 +54,10 @@ DoublyLinkedList.prototype.getAtHead = function() {
 
 DoublyLinkedList.prototype.getAtTail = function() {
     return this.tail;
+};
+
+DoublyLinkedList.prototype.getSize = function() {
+    return this.size;
 };
 
 module.exports = DoublyLinkedList;
