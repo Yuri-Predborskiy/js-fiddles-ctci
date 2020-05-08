@@ -9,7 +9,35 @@ const {
 
 describe('Chapter 3. Stacks and Queues', () => {
     describe('Problem 3.1. Three in One', () => {
+        const tests = [
+            {
+                input: [5, [
+                    // operation array: [operation, stack[, value]]
+                    ['push', 0, 1],
+                    ['push', 0, 2],
+                    ['push', 0, 3],
+                    ['push', 0, 4],
+                    ['push', 0, 5],
+                    ['push', 0, 6],
+                    ['pop', 0],
+                    ['push', 1, 12],
+                    ['push', 2, 23],
+                    ['top', 0],
+                    ['top', 1],
+                    ['top', 2],
+                    ['getSize', 0]
+                ]],
+                output: [true, true, true, true, true, false, 5, true, false, 4, 12, undefined, 4]
+            },
+        ];
+        const options = {
+            compareType: assertTypes.deepEqual
+        };
 
+        describe('list-of-stacks, Doubly linked list and map of list nodes where node.val = stack', () => {
+            const solver = require('./3.1. Three in One/linked-lists');
+            testRunner(tests, solver, options);
+        });
 
         // implement three stacks that share a single array (of a fixed size?)
         // 1. break array up into fixed parts, push - write into array part (keep start index and size for each stack)
