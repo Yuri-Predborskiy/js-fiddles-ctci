@@ -101,6 +101,35 @@ describe('Chapter 3. Stacks and Queues', () => {
             testRunner(tests, solver, options);
         });
     });
+
+    describe('Problem 3.4. Queue via Stacks', () => {
+        const tests = [
+            {
+                input: [[
+                    // operation array: [operation[, value]]
+                    ['push', 1],
+                    ['push', 2],
+                    ['push', 3],
+                    ['pop'],
+                    ['pop'],
+                    ['push', 8],
+                    ['pop'],
+                    ['pop'],
+                    ['pop'],
+                ]],
+                output: [undefined, undefined, undefined, 1, 2, undefined, 3, 8, undefined]
+            },
+        ];
+        const options = {
+            compareType: assertTypes.deepEqual
+        };
+
+        describe('object-array, Stack of objects where each object has value and min so far item', () => {
+            const solver = require('./3.4. Queue via Stacks/two-stacks');
+            testRunner(tests, solver, options);
+        });
+    });
+
     //
     // describe('Problem 2.3. Delete Middle Node', () => {
     //     const tests = [
