@@ -34,17 +34,17 @@ describe('Chapter 3. Stacks and Queues', () => {
             compareType: assertTypes.deepEqual
         };
 
-        describe('list-of-stacks, Doubly linked list and map of list nodes where node.val = stack', () => {
+        describe('linked-lists, N stacks in one array using N+1 doubly linked lists (details in the file)', () => {
             const solver = require('./3.1. Three in One/linked-lists');
             testRunner(tests, solver, options);
         });
 
-        describe('list-of-stacks, Doubly linked list and map of list nodes where node.val = stack', () => {
+        describe('space-efficient-fancy, Three stacks sharing one array with fancy middle stack', () => {
             const solver = require('./3.1. Three in One/space-efficient-fancy');
             testRunner(tests, solver, options);
         });
 
-        describe('list-of-stacks, Doubly linked list and map of list nodes where node.val = stack', () => {
+        describe('space-efficient-simple, Three stacks sharing one array, straightforward implementation', () => {
             const solver = require('./3.1. Three in One/space-efficient-simple');
             testRunner(tests, solver, options);
         });
