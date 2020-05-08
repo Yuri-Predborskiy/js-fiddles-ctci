@@ -39,34 +39,15 @@ describe('Chapter 3. Stacks and Queues', () => {
             testRunner(tests, solver, options);
         });
 
-        // implement three stacks that share a single array (of a fixed size?)
-        // 1. break array up into fixed parts, push - write into array part (keep start index and size for each stack)
-        //  benefits: fast, simple; drawbacks: inefficient use of space in array (fixed amount of space for each stack)
-        // 2. create 3 linked lists that contain indexes for items in each stack within the same array
-        //  benefits: fast, efficient use of space in array; drawbacks: extra space for linked lists
+        describe('list-of-stacks, Doubly linked list and map of list nodes where node.val = stack', () => {
+            const solver = require('./3.1. Three in One/space-efficient-fancy');
+            testRunner(tests, solver, options);
+        });
 
-
-
-        // const tests = [
-        //     {input: [1,2,3,4,2,3,4,1,5], output: [1,2,3,4,5]},
-        //     {input: [1,2,3], output: [1,2,3]},
-        //     {input: [1,1,1,1,1,2,1,3,1,1,1,0], output: [1,2,3,0]},
-        //     {input: [], output: []},
-        // ];
-        // const options = {
-        //     processInput: (input) => [convertArrayToLinkedList(input)],
-        //     processOutput: convertLinkedListToArray,
-        //     compareType: assertTypes.deepEqual,
-        // };
-        //
-        // describe('no-extra-space, Remove duplicate list nodes without using extra space', () => {
-        //     const solver = require('./2.1. Remove Dups/no-extra-space');
-        //     testRunner(tests, solver, options);
-        // });
-        // describe('set, Remove duplicates using a dictionary of elements', () => {
-        //     const solver = require('./2.1. Remove Dups/set');
-        //     testRunner(tests, solver, options);
-        // });
+        describe('list-of-stacks, Doubly linked list and map of list nodes where node.val = stack', () => {
+            const solver = require('./3.1. Three in One/space-efficient-simple');
+            testRunner(tests, solver, options);
+        });
     });
 
     describe('Problem 3.2. Stack Min', () => {
