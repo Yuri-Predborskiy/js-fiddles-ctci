@@ -1,11 +1,6 @@
 const {describe} = require('mocha');
 const assertTypes = require('../../helpers/assert-types');
 const testRunner = require('../../helpers/test-runner');
-const {
-    convertArrayToLinkedList,
-    convertArrayToDoublyLinkedList,
-    convertLinkedListToArray
-} = require('../../helpers/converters');
 
 describe('Chapter 3. Stacks and Queues', () => {
     describe('Problem 3.1. Three in One', () => {

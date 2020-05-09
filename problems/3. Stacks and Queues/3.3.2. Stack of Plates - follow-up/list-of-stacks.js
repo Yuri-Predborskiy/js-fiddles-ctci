@@ -12,6 +12,7 @@ Map allows finding any stack in linked list by ID in O(1) time.
 Finally, using arrays allows pop() in O(1) time from any stack.
 
 In total: O(1) time for push, pop, popFrom, size (number of stacks in use), top
+Space complexity: O(n) because of doubly linked list of stacks and stack map
  */
 
 function SetOfStacks(maxSize) {
@@ -69,7 +70,7 @@ SetOfStacks.prototype.getSize = function() {
 };
 
 /**
- * Wrapper function for Stack Min. Accepts stack and operations, executes operations, returns array of results
+ * Wrapper function for custom classes. Accepts stack and operations, executes operations, returns array of results
  * @param stack {array}     Array of items to be pushed to the Stack Min
  * @param maxSize {number}  Max number of elements in one stack
  * @param ops {array}       Operations to be executed against stack after filling it

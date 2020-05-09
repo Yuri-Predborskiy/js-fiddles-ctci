@@ -12,7 +12,7 @@ Time complexity when changing operation: O(n)
  */
 
 /**
- * Three stacks in one array. Space-efficient thanks to using linked lists for indexing
+ * Queue that is implemented via two stacks
  * @constructor
  */
 function MyQueue() {
@@ -21,6 +21,9 @@ function MyQueue() {
     this.mode = 'push';
 }
 
+/**
+ * Queue supports two modes of operation: push and pop. When switching mode, we move all items from one stack to another
+ */
 MyQueue.prototype.switchMode = function() {
     if (this.mode === 'push') {
         // desired mode is "reversed" to pop items at the start of the queue
@@ -43,7 +46,7 @@ MyQueue.prototype.switchMode = function() {
 
 /**
  * Push to Queue
- * @param val {*}               Value to be saved in the array
+ * @param val {*}               Value to be saved in the queue
  * @returns {boolean}           Success boolean
  */
 MyQueue.prototype.push = function(val) {
@@ -54,8 +57,8 @@ MyQueue.prototype.push = function(val) {
 };
 
 /**
- * Pop item from a specific stack
- * @return {*}                      Value stored at the top of the stack, or undefined
+ * Pop item from queue
+ * @return {*} next value in the queue, or undefined
  */
 MyQueue.prototype.pop = function() {
     if (this.mode !== 'pop') {
@@ -65,8 +68,8 @@ MyQueue.prototype.pop = function() {
 };
 
 /**
- * Get top item of a specific stack
- * @returns {*}                     Value at the top of the stack
+ * Get the next item to be popped from the queue
+ * @returns {*} next value of the queue or undefined
  */
 MyQueue.prototype.top = function() {
     if (this.mode !== 'pop') {
@@ -76,7 +79,7 @@ MyQueue.prototype.top = function() {
 };
 
 /**
- * Wrapper function for Triple Stack. Accepts operations and values, executes operations, returns array of results
+ * Wrapper function for custom classes. Accepts operations and values, executes operations, returns array of results
  * @param operations {Array[]}  Array of operations
  * @return {array}              Array with results from operations
  */
