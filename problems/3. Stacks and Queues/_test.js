@@ -147,169 +147,41 @@ describe('Chapter 3. Stacks and Queues', () => {
         });
     });
 
-    //
-    // describe('Problem 2.3. Delete Middle Node', () => {
-    //     const tests = [
-    //         {input: [[1,2,3], 2], output: [1,3]},
-    //         {input: [[1,2,3,4,5], 4], output: [1,2,3,5]},
-    //         {input: [['a','b','c','d'], 3], output: ['a','b','d']},
-    //     ];
-    //     const options = {
-    //         processInput: (input) => [convertArrayToLinkedList(input[0]), input[1]],
-    //         processOutput: (output) => convertLinkedListToArray(output),
-    //         compareType: assertTypes.deepEqual
-    //     };
-    //
-    //     describe('size, Iterate twice, first time count nodes, second time stop at desired node', () => {
-    //         const solver = require('./2.3. Delete Middle Node/replace');
-    //         testRunner(tests, solver, options);
-    //     });
-    // });
-    //
-    // describe('Problem 2.4. Partition', () => {
-    //     const tests = [
-    //         {input: [[1,2,5,1,2,1], 3], output: [1,2,1,2,1,5]},
-    //         {input: [[1,2,3,2,3], 4], output: [1,2,3,2,3]},
-    //     ];
-    //     const options = {
-    //         processInput: (input) => [convertArrayToLinkedList(input[0]), input[1]],
-    //         processOutput: (output) => convertLinkedListToArray(output),
-    //         compareType: assertTypes.deepEqual
-    //     };
-    //
-    //     describe('two-runners, Two runners, one looking for nodes to swap, second looking for place to swap to', () => {
-    //         const solver = require('./2.4. Partition/two-runners');
-    //         testRunner(tests, solver, options);
-    //     });
-    // });
-    //
-    // describe('Problem 2.5.1. Sum Lists', () => {
-    //     const tests = [
-    //         {input: [[7,1,6], [5,9,2]], output: [2,1,9]},
-    //         {input: [[7,9], [5]], output: [2,0,1]},
-    //     ];
-    //     const options = {
-    //         processInput: (input) => input.map(x => convertArrayToLinkedList(x)),
-    //         processOutput: (output) => convertLinkedListToArray(output),
-    //         compareType: assertTypes.deepEqual
-    //     };
-    //
-    //     describe('two-runners, Go over one node at a time and sum their values', () => {
-    //         const solver = require('./2.5.1. Sum Lists/two-runners');
-    //         testRunner(tests, solver, options);
-    //     });
-    // });
-    //
-    // describe('Problem 2.5.2. Sum Lists - follow up', () => {
-    //     const tests = [
-    //         {input: [[6,1,7], [2,9,5]], output: [9,1,2]},
-    //         {input: [[9,7], [5]], output: [1,0,2]},
-    //     ];
-    //     const options = {
-    //         processInput: (input) => input.map(x => convertArrayToLinkedList(x)),
-    //         processOutput: (output) => convertLinkedListToArray(output),
-    //         compareType: assertTypes.deepEqual
-    //     };
-    //
-    //     describe('arrays, Save values into arrays, then iterate over arrays to sum up numbers', () => {
-    //         const solver = require('./2.5.2. Sum Lists - follow up/arrays');
-    //         testRunner(tests, solver, options);
-    //     });
-    // });
-    //
-    // describe('Problem 2.6. Palindrome', () => {
-    //     const tests = [
-    //         {input: ['a','b','c','b','a'], output: true},
-    //         {input: ['a','b','c','b'], output: false},
-    //         {input: [1,2,2,1], output: true},
-    //         {input: [1,1], output: true},
-    //         {input: [false], output: true}, // sometimes false is true
-    //         {input: [], output: true},
-    //     ];
-    //     const options = {
-    //         processInput: (input) => [convertArrayToDoublyLinkedList(input)],
-    //     };
-    //
-    //     describe('two-runners, If input is in a doubly linked list, use two runners approach', () => {
-    //         const solver = require('./2.6. Palindrome/two-runners');
-    //         testRunner(tests, solver, options);
-    //     });
-    //
-    //     describe('array, Save all values into an array and check if it is palindrome', () => {
-    //         const solver = require('./2.6. Palindrome/array');
-    //         testRunner(tests, solver, options);
-    //     });
-    // });
-    //
-    // describe('Problem 2.7. Intersection', () => {
-    //     const tests = [
-    //         {input: [[1,0,2,3],[4,5,'2','3'],2], output: true},
-    //         {input: [[1,2,3],[4,'2','3'],1], output: true},
-    //         {input: [[1,2],[1,2],-1], output: false},
-    //         {input: [[1],[],-1], output: false},
-    //     ];
-    //     const options = {
-    //         processInput: (input) => {
-    //             // combine two lists at index provided at input[2]
-    //             // if input[2] = -1, do not link lists
-    //             const left = convertArrayToLinkedList(input[0]);
-    //             const right = convertArrayToLinkedList(input[1]);
-    //             if (input[2] > 0) {
-    //                 let index = 0, leftNode = left.head, rightNode = right.head;
-    //                 while (index++ < input[2] - 1) {
-    //                     leftNode = leftNode.next;
-    //                     rightNode = rightNode.next;
-    //                 }
-    //                 rightNode.next = leftNode.next;
-    //             }
-    //             return [left, right];
-    //         },
-    //     };
-    //
-    //     describe('set, Check for intersection using two runners and a set of nodes', () => {
-    //         const solver = require('./2.7. Intersection/set');
-    //         testRunner(tests, solver, options);
-    //     });
-    // });
-    //
-    // describe('Problem 2.8. Loop detection', () => {
-    //     const tests = [
-    //         {input: [[1,2,3,4,5], 2], output: 3},
-    //         {input: [[1,2,3], 1], output: 2},
-    //         {input: [[1,2], 1], output: 2},
-    //         {input: [[1,2,3,4,5], -1], output: null}
-    //     ];
-    //     const options = {
-    //         processInput: (input) => {
-    //             // create a looping linked list. Last node is connected to node at input[1] index
-    //             // if input[1] === -1, there is no loop
-    //             const list = convertArrayToLinkedList(input[0]);
-    //             if (input[1] !== -1) {
-    //                 let node = list.head, index = 0;
-    //                 while (node.next) {
-    //                     node = node.next;
-    //                 }
-    //                 const last = node;
-    //                 node = list.head;
-    //                 while (node) {
-    //                     node = node.next;
-    //                     if (++index === input[1]) {
-    //                         last.next = node;
-    //                         break;
-    //                     }
-    //                 }
-    //             }
-    //             return [list];
-    //         },
-    //     };
-    //
-    //     describe('set, Check if linked list has a loop using a Set of nodes', () => {
-    //         const solver = require('./2.8. Loop Detection/set');
-    //         testRunner(tests, solver, options);
-    //     });
-    //     describe('set, Check if linked list has a loop using a Set of nodes', () => {
-    //         const solver = require('./2.8. Loop Detection/two-runners');
-    //         testRunner(tests, solver, options);
-    //     });
-    // });
+    describe('Problem 3.6. Animal Shelter', () => {
+        const tests = [
+            {
+                input: [[
+                    // operation array: [operation[, value]]
+                    ['enqueue', {type: 'dog', name: 'Winston'}],
+                    ['enqueue', {type: 'cat', name: 'Chloe'}],
+                    ['enqueue', {type: 'cat', name: 'Lily'}],
+                    ['enqueue', {type: 'dog', name: 'Cody'}],
+                    ['dequeueAny'],
+                    ['dequeueDog'],
+                    ['dequeueCat'],
+                    ['dequeueAny'],
+                    ['dequeueAny'],
+                ]],
+                output: [
+                    undefined,
+                    undefined,
+                    undefined,
+                    undefined,
+                    {type: 'dog', name: 'Winston'},
+                    {type: 'dog', name: 'Cody'},
+                    {type: 'cat', name: 'Chloe'},
+                    {type: 'cat', name: 'Lily'},
+                    null
+                ]
+            },
+        ];
+        const options = {
+            compareType: assertTypes.deepEqual
+        };
+
+        describe('linked-list, Implement Animal Queue using Linked List and Animal class', () => {
+            const solver = require('./3.6. Animal Shelter/linked-list');
+            testRunner(tests, solver, options);
+        });
+    });
 });
