@@ -95,6 +95,11 @@ describe('Chapter 3. Stacks and Queues', () => {
             const solver = require('./3.3.2. Stack of Plates - follow-up/list-of-stacks');
             testRunner(tests, solver, options);
         });
+
+        describe('stack-of-stacks, Doubly linked list and map of list nodes where node.val = stack', () => {
+            const solver = require('./3.3.2. Stack of Plates - follow-up/stack-of-stacks');
+            testRunner(tests, solver, options);
+        });
     });
 
     describe('Problem 3.4. Queue via Stacks', () => {
