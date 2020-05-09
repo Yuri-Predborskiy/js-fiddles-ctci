@@ -130,6 +130,23 @@ describe('Chapter 3. Stacks and Queues', () => {
         });
     });
 
+    describe('Problem 3.5. Sort Stack', () => {
+        const tests = [
+            {
+                input: [[3,1,4,7,5,6,2]],
+                output: [1,2,3,4,5,6,7]
+            },
+        ];
+        const options = {
+            compareType: assertTypes.deepEqual
+        };
+
+        describe('two-stacks, Stack of objects where each object has value and min so far item', () => {
+            const solver = require('./3.5. Sort Stack/two-stacks');
+            testRunner(tests, solver, options);
+        });
+    });
+
     //
     // describe('Problem 2.3. Delete Middle Node', () => {
     //     const tests = [
