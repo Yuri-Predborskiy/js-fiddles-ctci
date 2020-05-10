@@ -4,37 +4,27 @@ const testRunner = require('../../helpers/test-runner');
 
 const {convertAdjacencyMatrixToGraph} = require('../../helpers/converters');
 
-// describe('Testing graph class', () => {
-//     const matrix = [
-//         [0,1,0,0,0],
-//         [0,0,1,0,0],
-//         [1,0,0,0,0],
-//         [0,0,1,0,0],
-//         [0,0,0,0,0]
-//     ];
-//     const graph = convertAdjacencyMatrixToGraph(matrix);
-//     console.log(graph);
-//     return graph;
-// })
-
 describe('Chapter 4. Trees and Graphs', () => {
     describe('Problem 4.1. Route Between Nodes', () => {
-        const graph = convertAdjacencyMatrixToGraph([
+        const adjacencyMatrix = [
             [0, 1, 0, 0, 0],
             [0, 0, 1, 0, 0],
             [1, 0, 0, 0, 0],
             [0, 0, 1, 0, 0],
             [0, 0, 0, 0, 0]
-        ]);
-        const tests = [
-            {input: [graph, 0, 2], output: true}, // path from 0 to 2 exists
-            {input: [graph, 1, 3], output: true}, // path from 1 to 3 does not exist, 3 to 1 exists
-            {input: [graph, 2, 4], output: false}, // node 4 is isolated
         ];
+        const tests = [
+            {input: [adjacencyMatrix, 0, 2], output: true}, // path from 0 to 2 exists
+            {input: [adjacencyMatrix, 1, 3], output: true}, // path from 1 to 3 does not exist, 3 to 1 exists
+            {input: [adjacencyMatrix, 2, 4], output: false}, // node 4 is isolated
+        ];
+        const options = {
+            processInput: input => [convertAdjacencyMatrixToGraph(input[0]), input[1], input[2]],
+        };
 
         describe('bfs, Check if path exists using Breadth First Search', () => {
             const solver = require('./4.1. Route Between Nodes/bfs');
-            testRunner(tests, solver);
+            testRunner(tests, solver, options);
         });
     });
 //
