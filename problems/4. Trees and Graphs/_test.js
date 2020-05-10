@@ -2,7 +2,12 @@ const {describe} = require('mocha');
 const assertTypes = require('../../helpers/assert-types');
 const testRunner = require('../../helpers/test-runner');
 
-const {convertAdjacencyMatrixToGraph, convertBinaryTreeToArray} = require('../../helpers/converters');
+const {
+    convertAdjacencyMatrixToGraph,
+    convertBinaryTreeToArray,
+    convertArrayToBinaryTree,
+    convertLinkedListToArray,
+} = require('../../helpers/converters');
 
 describe('Chapter 4. Trees and Graphs', () => {
     describe('Problem 4.1. Route Between Nodes', () => {
@@ -40,8 +45,34 @@ describe('Chapter 4. Trees and Graphs', () => {
             compareType: assertTypes.deepEqual
         };
 
-        describe('bfs, Check if path exists using Breadth First Search', () => {
+        describe('recursion, Break array in the middle and create root, left and right trees recursively', () => {
             const solver = require('./4.2. Minimal Tree/recursion');
+            testRunner(tests, solver, options);
+        });
+    });
+
+    describe('Problem 4.3. List of Depths', () => {
+        const tests = [
+            {input: [1,2,3], output: [[1],[2,3],[null,null,null,null]]},
+            {input: [1,2,3,4,null,null,5], output: [[1],[2,3],[4,null,null,5],[null,null,null,null]]},
+            {input: [1,2,3,4,5,6,7], output: [[1],[2,3],[4,5,6,7],[null,null,null,null,null,null,null,null]]},
+        ];
+        const options = {
+            processInput: input => [convertArrayToBinaryTree(input)],
+            processOutput: output => {
+                let node = output.head;
+                const result = [];
+                while (node) {
+                    result.push(convertLinkedListToArray(node.val));
+                    node = node.next;
+                }
+                return result;
+            },
+            compareType: assertTypes.deepEqual
+        };
+
+        describe('iterative, Using level order traversal via queue, create level lists from all tree nodes', () => {
+            const solver = require('./4.3. List of Depths/iterative');
             testRunner(tests, solver, options);
         });
     });
