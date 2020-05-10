@@ -2,7 +2,7 @@ const {describe} = require('mocha');
 const assertTypes = require('../../helpers/assert-types');
 const testRunner = require('../../helpers/test-runner');
 
-const {convertAdjacencyMatrixToGraph} = require('../../helpers/converters');
+const {convertAdjacencyMatrixToGraph, convertBinaryTreeToArray} = require('../../helpers/converters');
 
 describe('Chapter 4. Trees and Graphs', () => {
     describe('Problem 4.1. Route Between Nodes', () => {
@@ -24,6 +24,24 @@ describe('Chapter 4. Trees and Graphs', () => {
 
         describe('bfs, Check if path exists using Breadth First Search', () => {
             const solver = require('./4.1. Route Between Nodes/bfs');
+            testRunner(tests, solver, options);
+        });
+    });
+
+    describe('Problem 4.2. Minimal Tree', () => {
+        const tests = [
+            {input: [[1,2,3,4]], output: [3,2,4,1]},
+            {input: [[1]], output: [1]},
+            {input: [[1,2,3]], output: [2,1,3]},
+            {input: [[1,2,3,4,5,6,7]], output: [4,2,6,1,3,5,7]},
+        ];
+        const options = {
+            processOutput: output => convertBinaryTreeToArray(output),
+            compareType: assertTypes.deepEqual
+        };
+
+        describe('bfs, Check if path exists using Breadth First Search', () => {
+            const solver = require('./4.2. Minimal Tree/recursion');
             testRunner(tests, solver, options);
         });
     });
