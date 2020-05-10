@@ -3,6 +3,7 @@ const _ = require('lodash');
 const LinkedList = require('./linked-list');
 const DoublyLinkedList = require('./doubly-linked-list');
 const GraphNode = require('./graph-node');
+const Queue = require('./queue');
 
 /**
  * Make a deep clone of input, for example, an array or object. Requires Lodash
@@ -80,10 +81,41 @@ function convertAdjacencyMatrixToGraph(matrix) {
     return graph;
 }
 
+/**
+ * Convert a tree to array, level order traversal, iterating over children from left to right
+ * @param root
+ */
+function convertBinaryTreeToArray(root) {
+    const queue = new Queue();
+    queue.enqueue(root);
+    const result = [];
+    while (!queue.isEmpty()) {
+        const node = queue.dequeue();
+        if (!node) {
+            result.push(null);
+            continue;
+        }
+        result.push(node.val);
+        queue.enqueue(node.left);
+        queue.enqueue(node.right);
+    }
+
+    let last = result[result.length - 1];
+    while (!last) {
+        if (!result[result.length - 1]) {
+            last = result.pop();
+        } else {
+            break;
+        }
+    }
+    return result;
+}
+
 module.exports = {
     cloneDeep,
     convertArrayToLinkedList,
     convertArrayToDoublyLinkedList,
     convertLinkedListToArray,
     convertAdjacencyMatrixToGraph,
+    convertBinaryTreeToArray,
 };
