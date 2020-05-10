@@ -40,6 +40,9 @@ LinkedList.prototype.delete = function(node) {
     }
     if (node === this.head) {
         this.head = node.next;
+        if (!this.head) {
+            this.tail = this.head;
+        }
         return;
     }
 
@@ -79,7 +82,7 @@ LinkedList.prototype.popAtHead = function() {
     if (!node) {
         return node;
     }
-    this.head = this.head.next;
+    this.delete(node);
     return node;
 };
 
@@ -92,7 +95,6 @@ LinkedList.prototype.popAtTail = function() {
     if (!node) {
         return node;
     }
-
     this.delete(node);
     return node;
 };

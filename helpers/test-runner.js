@@ -2,8 +2,6 @@ const {assert} = require('chai');
 const {it} = require('mocha');
 const compareTypes = require('./assert-types');
 
-const {inspect} = require('util');
-
 /**
  * Function that will run Mocha tests with provided parameters
  * @param tests {[{input: array, output: *}]}       Array of tests, each contains an object with inputs and outputs
@@ -14,8 +12,7 @@ module.exports = function testRunner(tests, solver, options = {}) {
     let {compareType, processInput, processOutput} = options;
     compareType = compareType || compareTypes.equal;
     for (const test of tests) {
-        // it(`inputs: ${JSON.stringify(test.input)}, expected outputs: ${JSON.stringify(test.output)}`, () => {
-        it(`inputs: ${inspect(test.input, {depth: 3})}, expected outputs: ${JSON.stringify(test.output)}`, () => {
+        it(`inputs: ${JSON.stringify(test.input)}, expected outputs: ${JSON.stringify(test.output)}`, () => {
             const processedInput = processInput ? processInput(test.input) : test.input;
             const result = solver(...processedInput);
             const myOutput = processOutput ? processOutput(result) : result;
