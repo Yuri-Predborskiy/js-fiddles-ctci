@@ -22,7 +22,7 @@ Queue.prototype.enqueue = function(val) {
  * @returns {*}
  */
 Queue.prototype.dequeue = function() {
-    return this.list.popAtHead().val
+    return this.list.popAtHead().val;
 };
 
 /**
