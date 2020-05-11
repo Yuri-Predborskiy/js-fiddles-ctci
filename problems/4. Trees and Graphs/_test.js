@@ -76,6 +76,23 @@ describe('Chapter 4. Trees and Graphs', () => {
             testRunner(tests, solver, options);
         });
     });
+
+    describe('Problem 4.6. Successor', () => {
+        const tests = [
+            {input: [1,2,3], output: 3},
+            {input: [1,2,3,4,null,5], output: 5},
+            {input: [1,2,3,4,null,null,5], output: 3},
+            {input: [1,2], output: null},
+        ];
+        const options = {
+            processInput: input => [convertArrayToBinaryTree(input)],
+        };
+
+        describe('iterative, Using level order traversal via queue, create level lists from all tree nodes', () => {
+            const solver = require('./4.6. Successor/iterative');
+            testRunner(tests, solver, options);
+        });
+    });
 //
 //     describe('Problem 3.2. Stack Min', () => {
 //         const tests = [
