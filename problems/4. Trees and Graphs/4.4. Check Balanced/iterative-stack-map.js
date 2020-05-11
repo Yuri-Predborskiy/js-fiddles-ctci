@@ -2,7 +2,7 @@
 If tree is balanced: the difference of depth of left sub-tree and right sub-tree is no more than 1
 Solution using iteration via Stack (post-order traversal)
 Benefit of iterative approach: early exit as soon as we know the answer (false)
-Drawback of iterative approach: harder to implement compared to recursion
+Drawback of iterative approach: harder to implement compared to recursion, extra space complexity
 
 Time complexity: O(n)
 Space complexity: O(n)

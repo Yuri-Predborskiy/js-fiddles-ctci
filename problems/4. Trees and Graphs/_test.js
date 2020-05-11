@@ -99,6 +99,25 @@ describe('Chapter 4. Trees and Graphs', () => {
         });
     });
 
+    describe('Problem 4.5. Validate BST', () => {
+        const tests = [
+            {input: [1,2,3], output: false},
+            {input: [2,1,3], output: true},
+            {input: [3,2,4,1], output: true},
+            {input: [1], output: true},
+            {input: [4,2,6,1,3,7,5], output: false},
+            {input: [4,2,6,1,3,5,7], output: true},
+        ];
+        const options = {
+            processInput: input => [convertArrayToBinaryTree(input)],
+        };
+
+        describe('recursion, Walk over the tree and check if every node fits into limitations of BST', () => {
+            const solver = require('./4.5. Validate BST/recursion');
+            testRunner(tests, solver, options);
+        });
+    });
+
     describe('Problem 4.6. Successor', () => {
         const tests = [
             {input: [1,2,3], output: 3},
