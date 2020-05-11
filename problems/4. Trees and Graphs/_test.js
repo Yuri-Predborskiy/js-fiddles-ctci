@@ -77,6 +77,28 @@ describe('Chapter 4. Trees and Graphs', () => {
         });
     });
 
+    describe('Problem 4.4. Check Balanced', () => {
+        const tests = [
+            {input: [1,2,3], output: true},
+            {input: [1,2,3,4], output: true},
+            {input: [1,2,null,3], output: false},
+            {input: [1,2,3,4,null,null,null,5], output: false},
+        ];
+        const options = {
+            processInput: input => [convertArrayToBinaryTree(input)],
+        };
+
+        describe('recursion, Recursively go over the tree and check if all sub-trees are balanced', () => {
+            const solver = require('./4.4. Check Balanced/recursion');
+            testRunner(tests, solver, options);
+        });
+
+        describe('iterative-stack-map, Iteratively go over the tree and check if all sub-trees are balanced', () => {
+            const solver = require('./4.4. Check Balanced/iterative-stack-map');
+            testRunner(tests, solver, options);
+        });
+    });
+
     describe('Problem 4.6. Successor', () => {
         const tests = [
             {input: [1,2,3], output: 3},
@@ -88,7 +110,7 @@ describe('Chapter 4. Trees and Graphs', () => {
             processInput: input => [convertArrayToBinaryTree(input)],
         };
 
-        describe('iterative, Using level order traversal via queue, create level lists from all tree nodes', () => {
+        describe('iterative, Iterate over the nodes to find a successor', () => {
             const solver = require('./4.6. Successor/iterative');
             testRunner(tests, solver, options);
         });

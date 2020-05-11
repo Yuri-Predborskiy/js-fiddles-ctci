@@ -12,7 +12,7 @@ Space complexity: O(1)
 /**
  * Return value of next node in in-order traversal (left, root, right)
  * @param root {TreeNode}
- * @returns {LinkedList}
+ * @returns {*}
  */
 module.exports = function successor(root) {
     let node = root.right;
