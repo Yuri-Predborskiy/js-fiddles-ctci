@@ -207,4 +207,34 @@ describe('Chapter 4. Trees and Graphs', () => {
             testRunner(tests, solver, options);
         });
     });
+
+    describe('Problem 4.9. BST Sequences', () => {
+        const tests = [
+            {input: [2,1,3], output: [[2,1,3],[2,3,1]]},
+            {
+                input:
+                    [4,2,6,1,3],
+                output: [
+                    [4,2,1,3,6],
+                    [4,2,1,6,3],
+                    [4,2,6,1,3],
+                    [4,6,2,1,3],
+                    [4,2,3,1,6],
+                    [4,2,3,6,1],
+                    [4,2,6,3,1],
+                    [4,6,2,3,1],
+                ]
+            },
+        ];
+        const options = {
+            processInput: input => [convertArrayToBinaryTree(input)],
+            processOutput: output => output.map(a => convertLinkedListToArray(a)),
+            compareType: assertTypes.deepEqual,
+        };
+
+        describe('double-recursion, Textbook solution, converted into JS', () => {
+            const solver = require('./4.9. BST Sequences/double-recursion');
+            testRunner(tests, solver, options);
+        });
+    });
 });

@@ -1,3 +1,5 @@
+const ListNode = require('./list-node');
+
 function LinkedList() {
     this.head = this.tail = null;
 }
@@ -101,6 +103,32 @@ LinkedList.prototype.popAtTail = function() {
 
 LinkedList.prototype.isEmpty = function() {
     return this.head === null;
+};
+
+/**
+ * Create a clone of the current linked list and return it
+ * @returns {null|LinkedList}
+ */
+LinkedList.prototype.clone = function() {
+    const list = new LinkedList();
+    let node = this.head;
+    while (node) {
+        list.appendAtTail(new ListNode(node.val));
+        node = node.next;
+    }
+    return list;
+};
+
+/**
+ * Copy all elements of another linked list to current linked list. Shallow copy
+ * @param list {LinkedList}
+ */
+LinkedList.prototype.appendListAtTail = function(list) {
+    let node = list.head;
+    while (node) {
+        this.appendAtTail(new ListNode(node.val));
+        node = node.next;
+    }
 };
 
 module.exports = LinkedList;
