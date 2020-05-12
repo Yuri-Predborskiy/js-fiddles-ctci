@@ -25,7 +25,7 @@ const GraphNode = require('../../../helpers/graph-node');
  * @param dependencies {string[][]}     Pairs of child-parent pairs, where parent needs to be built before the child
  * @returns {*}
  */
-module.exports = function successor(projects, dependencies) {
+module.exports = function buildOrder(projects, dependencies) {
     const buildOrder = [];
     let buildIndex = 0;
     const projectMap = new Map();

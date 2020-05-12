@@ -190,144 +190,21 @@ describe('Chapter 4. Trees and Graphs', () => {
             testRunner(tests, solver, options);
         });
     });
-//
-//     describe('Problem 3.2. Stack Min', () => {
-//         const tests = [
-//             {input: [[2,3,4,5,1,6], ['min', 'pop', 'pop', 'min', 'top']], output: [1, 6, 1, 2, 5]},
-//         ];
-//         const options = {
-//             compareType: assertTypes.deepEqual
-//         };
-//
-//         describe('object-array, Stack of objects where each object has value and min so far item', () => {
-//             const solver = require('./3.2. Stack Min/object-array');
-//             testRunner(tests, solver, options);
-//         });
-//     });
-//
-//     describe('Problem 3.3.1. Stack of Plates', () => {
-//         const tests = [
-//             {
-//                 input: [[1,2,3,4,5], 2, ['getSize', 'pop', 'getSize', 'pop', 'pop', 'pop', 'getSize', 'pop', 'pop']],
-//                 output: [3, 5, 2, 4, 3, 2, 1, 1, undefined]
-//             },
-//         ];
-//         const options = {
-//             compareType: assertTypes.deepEqual
-//         };
-//
-//         describe('stack-array, Array of stacks. Automatically add new stack when last is full and remove empty', () => {
-//             const solver = require('./3.3.1. Stack of Plates/stack-array');
-//             testRunner(tests, solver, options);
-//         });
-//     });
-//
-//     describe('Problem 3.3.2. Stack of Plates - follow-up', () => {
-//         const tests = [
-//             {
-//                 input: [[1,2,3,4,5], 2, ['getSize', 'pop', 'getSize', 'pop', 'pop', 'pop', 'getSize', 'pop', 'pop']],
-//                 output: [3, 5, 2, 4, 3, 2, 1, 1, undefined]
-//             },
-//             {
-//                 input: [[1,2,3,4,5], 2, ['getSize', 'popFrom:1', 'getSize', 'popFrom:1', 'getSize', 'pop', 'pop', 'getSize']],
-//                 output: [3, 4, 3, 3, 2, 5, 2, 1]
-//             },
-//         ];
-//         const options = {
-//             compareType: assertTypes.deepEqual
-//         };
-//
-//         describe('list-of-stacks, Doubly linked list and map of list nodes where node.val = stack', () => {
-//             const solver = require('./3.3.2. Stack of Plates - follow-up/list-of-stacks');
-//             testRunner(tests, solver, options);
-//         });
-//
-//         describe('stack-of-stacks, Doubly linked list and map of list nodes where node.val = stack', () => {
-//             const solver = require('./3.3.2. Stack of Plates - follow-up/stack-of-stacks');
-//             testRunner(tests, solver, options);
-//         });
-//     });
-//
-//     describe('Problem 3.4. Queue via Stacks', () => {
-//         const tests = [
-//             {
-//                 input: [[
-//                     // operation array: [operation[, value]]
-//                     ['push', 1],
-//                     ['push', 2],
-//                     ['push', 3],
-//                     ['pop'],
-//                     ['pop'],
-//                     ['push', 8],
-//                     ['pop'],
-//                     ['pop'],
-//                     ['pop'],
-//                 ]],
-//                 output: [undefined, undefined, undefined, 1, 2, undefined, 3, 8, undefined]
-//             },
-//         ];
-//         const options = {
-//             compareType: assertTypes.deepEqual
-//         };
-//
-//         describe('object-array, Stack of objects where each object has value and min so far item', () => {
-//             const solver = require('./3.4. Queue via Stacks/two-stacks');
-//             testRunner(tests, solver, options);
-//         });
-//     });
-//
-//     describe('Problem 3.5. Sort Stack', () => {
-//         const tests = [
-//             {
-//                 input: [[3,1,4,7,5,6,2]],
-//                 output: [1,2,3,4,5,6,7]
-//             },
-//         ];
-//         const options = {
-//             compareType: assertTypes.deepEqual
-//         };
-//
-//         describe('two-stacks, Stack of objects where each object has value and min so far item', () => {
-//             const solver = require('./3.5. Sort Stack/two-stacks');
-//             testRunner(tests, solver, options);
-//         });
-//     });
-//
-//     describe('Problem 3.6. Animal Shelter', () => {
-//         const tests = [
-//             {
-//                 input: [[
-//                     // operation array: [operation[, value]]
-//                     ['enqueue', {type: 'dog', name: 'Winston'}],
-//                     ['enqueue', {type: 'cat', name: 'Chloe'}],
-//                     ['enqueue', {type: 'cat', name: 'Lily'}],
-//                     ['enqueue', {type: 'dog', name: 'Cody'}],
-//                     ['dequeueAny'],
-//                     ['dequeueDog'],
-//                     ['dequeueCat'],
-//                     ['dequeueAny'],
-//                     ['dequeueAny'],
-//                 ]],
-//                 output: [
-//                     undefined,
-//                     undefined,
-//                     undefined,
-//                     undefined,
-//                     {type: 'dog', name: 'Winston'},
-//                     {type: 'dog', name: 'Cody'},
-//                     {type: 'cat', name: 'Chloe'},
-//                     {type: 'cat', name: 'Lily'},
-//                     null
-//                 ]
-//             },
-//         ];
-//         const options = {
-//             compareType: assertTypes.deepEqual
-//         };
-//
-//         describe('linked-list, Implement Animal Queue using Linked List and Animal class', () => {
-//             const solver = require('./3.6. Animal Shelter/linked-list');
-//             testRunner(tests, solver, options);
-//         });
-//     });
+
+    describe('Problem 4.8. First Common Ancestor', () => {
+        const tests = [
+            {input: [[1,2,3],2,3], output: 1},
+            {input: [['a','b','c','d','e','f','g',null,null,'j',null,'k',null,'h','i'], 'f', 'g'], output: 'c'},
+            {input: [['a','b','c','d','e','f','g',null,null,'j',null,'k',null,'h','i'], 'f', 'z'], output: null},
+            {input: [['a','b','c','d','e','f','g',null,null,'j',null,'k',null,'h','i'], 'i', 'j'], output: 'a'},
+        ];
+        const options = {
+            processInput: input => [convertArrayToBinaryTree(input[0]), input[1], input[2]],
+        };
+
+        describe('iterative, Iterate over the nodes to find a successor', () => {
+            const solver = require('./4.8. First Common Ancestor/dfs');
+            testRunner(tests, solver, options);
+        });
+    });
 });
