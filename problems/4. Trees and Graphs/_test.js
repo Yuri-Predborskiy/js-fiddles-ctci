@@ -134,6 +134,62 @@ describe('Chapter 4. Trees and Graphs', () => {
             testRunner(tests, solver, options);
         });
     });
+
+    describe('Problem 4.7. Build Order', () => {
+        const tests = [
+            {
+                input: [
+                    ['a','b','c','d','e','f'],
+                    [['d','a'],['b','f'],['d','b'],['a','f'],['c','d']],
+                ],
+                output: ['e','f','b','a','d','c']
+            },
+            {
+                input: [
+                    ['c','d'],
+                    [['d','c'],['c','d']],
+                ],
+                output: ['error'] // for the sake of test simplicity
+            },
+            {
+                input: [
+                    ['a','b','c','d'],
+                    [['b','a'],['c','b'],['a','c'],['a','d']],
+                ],
+                output: ['error'] // for the sake of test simplicity
+            },
+            {
+                input: [
+                    ['a','b','c'],
+                    [['a','b']],
+                ],
+                output: ['b','c','a']
+            },
+            {
+                input: [
+                    ['a'],
+                    [],
+                ],
+                output: ['a']
+            },
+            {
+                input: [
+                    [],
+                    [],
+                ],
+                output: []
+            },
+        ];
+        const options = {
+            processOutput: output => output instanceof Error ? ['error'] : output,
+            compareType: assertTypes.deepEqual, // beware: order-dependent
+        };
+
+        describe('iterative, Iterate over the nodes to find a successor', () => {
+            const solver = require('./4.7. Build Order/bfs');
+            testRunner(tests, solver, options);
+        });
+    });
 //
 //     describe('Problem 3.2. Stack Min', () => {
 //         const tests = [
