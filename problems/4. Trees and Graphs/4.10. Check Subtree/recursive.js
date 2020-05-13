@@ -12,15 +12,6 @@ Space complexity: O(n + m)
  * @returns {boolean}
  */
 function checkSubtree(parent, child) {
-    // find sub-tree root in main tree
-    // from this point onwards, check recursively if sub-tree nodes match main tree nodes
-    // recursion inside recursion, sounds fun!
-    // 1. traverse through parent tree, looking for a node that has the same value as child tree root
-    // 2. starting at that point calculate whether the sub-tree of parent and entire child match
-    // 3. if they match, return true, if not, continue looking for this same node in a different place
-    // how to traverse a tree: iteratively vs recursively
-    // two recursions: first to traverse a tree to compare node vals
-    //  second to compare sub-trees
     function compareTrees(root, otherRoot) {
         if (!root || !otherRoot) {
             // if one root is null, another should be null as well
