@@ -280,10 +280,5 @@ describe('Chapter 4. Trees and Graphs', () => {
             const solver = require('./4.12. Paths with Sum/recursive-hash');
             testRunner(tests, solver, options);
         });
-        //
-        // describe('recursive, Recursively find matching roots and compares sub-trees', () => {
-        //     const solver = require('./4.10. Check Subtree/recursive');
-        //     testRunner(tests, solver, options);
-        // });
     });
 });
