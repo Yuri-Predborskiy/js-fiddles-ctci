@@ -248,13 +248,21 @@ describe('Chapter 4. Trees and Graphs', () => {
             {input: [[4,2,6,1,3],[2,3,1]], output: false},
             {input: [[1,2,null,null,4],[2,4]], output: false},
             {input: [[1,2,null,4],[2,4]], output: true},
+            {input: [[1,2,null,4],[4]], output: true},
+            {input: [[1,1,1,1,1,1,1],[1,1]], output: false},
+            {input: [[1,1,1,1,1,1,1,1],[1,1]], output: true},
         ];
         const options = {
             processInput: input => input.map(arr => convertArrayToBinaryTree(arr)),
         };
 
-        describe('double-recursion, Textbook solution, converted into JS', () => {
+        describe('serialize, Serialize trees and compare results', () => {
             const solver = require('./4.10. Check Subtree/serialize');
+            testRunner(tests, solver, options);
+        });
+
+        describe('recursive, Recursively find matching roots and compares sub-trees', () => {
+            const solver = require('./4.10. Check Subtree/recursive');
             testRunner(tests, solver, options);
         });
     });
