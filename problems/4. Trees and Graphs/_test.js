@@ -266,4 +266,24 @@ describe('Chapter 4. Trees and Graphs', () => {
             testRunner(tests, solver, options);
         });
     });
+
+    describe('Problem 4.12. Paths with Sum', () => {
+        const tests = [
+            {input: [[10, 5, -3, 3, 1, null, 11, 3, -2, null, 2], 8], output: 3},
+            {input: [[9, 6, -3, 2, 1, null, 11, 3, -2, null, 1], 8], output: 3},
+        ];
+        const options = {
+            processInput: input => [convertArrayToBinaryTree(input[0]), input[1]],
+        };
+
+        describe('recursive-hash, Textbook solution', () => {
+            const solver = require('./4.12. Paths with Sum/recursive-hash');
+            testRunner(tests, solver, options);
+        });
+        //
+        // describe('recursive, Recursively find matching roots and compares sub-trees', () => {
+        //     const solver = require('./4.10. Check Subtree/recursive');
+        //     testRunner(tests, solver, options);
+        // });
+    });
 });
