@@ -17,7 +17,7 @@ Space complexity: O(n)
  * Find all paths that sum up to targetSum and return their count
  * @param root {TreeNode}       Root of the tree
  * @param targetSum {number}    Sum to be found
- * @returns {boolean}
+ * @returns {number}
  */
 function pathsWithSum(root, targetSum) {
     function helper(node, runningSum) {

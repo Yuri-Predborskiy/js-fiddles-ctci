@@ -384,5 +384,9 @@ describe('Chapter 4. Trees and Graphs', () => {
             const solver = require('./4.12. Paths with Sum/recursive-hash');
             testRunner(tests, solver, options);
         });
+        describe('iterative-map, Iterative solution using stack via array and visited Set, Map of running sums', () => {
+            const solver = require('./4.12. Paths with Sum/iterative-map');
+            testRunner(tests, solver, options);
+        });
     });
 });
