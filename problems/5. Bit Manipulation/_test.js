@@ -24,6 +24,21 @@ describe('Chapter 5. Bit Manipulation', () => {
         });
     });
 
+    describe('Problem 5.2. Binary to String', () => {
+        const tests = [
+            {input: [0.75], output: '0.11'},
+            {input: [0.5], output: '0.1'},
+            {input: [0.375], output: '0.011'},
+            {input: [0.1], output: 'ERROR'},
+            {input: [0.2], output: 'ERROR'},
+        ];
+
+        describe('calculus, Multiply by 2 to see if number is more than 1. Keep multiplying till fraction is 0', () => {
+            const solver = require('./5.2. Binary to String/calculus');
+            testRunner(tests, solver);
+        });
+    });
+
     // describe('Problem 4.2. Minimal Tree', () => {
     //     const tests = [
     //         {input: [[1, 2, 3, 4]], output: [3, 2, 4, 1]},
