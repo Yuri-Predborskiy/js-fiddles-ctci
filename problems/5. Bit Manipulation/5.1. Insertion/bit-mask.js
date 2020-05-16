@@ -9,6 +9,14 @@ Time complexity: O(1), calculation takes a fixed number of operations regardless
 Space complexity: O(n)
  */
 
+/**
+ * "Insert" a bit representation of M into N at positions between I and J
+ * @param n {number}    Number that will be used as a base (bit-wise is guaranteed to be at least large enough for M)
+ * @param m {number}    Number that will be inserted into the other number
+ * @param i {number}    start index of inserted bits
+ * @param j {number}    end index of inserted bits
+ * @returns {number}
+ */
 module.exports = function insertion(n, m, i, j) {
     const ones = ~0;
     const left = ones << (j + 1);

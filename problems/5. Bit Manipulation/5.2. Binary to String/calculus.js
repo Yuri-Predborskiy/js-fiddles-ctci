@@ -7,7 +7,7 @@ Space complexity: O(n) for output
  */
 
 /**
- *
+ * Convert fraction of a number (from 0 to 1) to binary, return string with binary representation. Or ERROR
  * @param num {number}          Fraction of a number, from 0 to 1 (exclusive)
  * @return {string|'ERROR'}
  */

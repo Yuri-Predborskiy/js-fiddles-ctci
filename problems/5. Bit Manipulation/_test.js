@@ -39,6 +39,19 @@ describe('Chapter 5. Bit Manipulation', () => {
         });
     });
 
+    describe('Problem 5.3. Flip Bit to Win', () => {
+        const tests = [
+            {input: [1775], output: 8},
+            {input: [0], output: 1},
+            {input: [2], output: 2},
+            {input: [982734], output: 11},
+        ];
+
+        describe('count-nums, Count 1s to find two longest consecutive sequences of 1s separated by a single 0', () => {
+            const solver = require('./5.3. Flip Bit to Win/count-nums');
+            testRunner(tests, solver);
+        });
+    });
     // describe('Problem 4.2. Minimal Tree', () => {
     //     const tests = [
     //         {input: [[1, 2, 3, 4]], output: [3, 2, 4, 1]},
