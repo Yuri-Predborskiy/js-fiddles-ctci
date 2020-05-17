@@ -70,6 +70,32 @@ describe('Chapter 5. Bit Manipulation', () => {
         });
     });
 
+    describe('Problem 5.5. Debugger', () => {
+        const tests = [
+            {input: [15], output: false},
+            {input: [16], output: true},
+            {input: [24], output: false},
+            {input: [8], output: true},
+        ];
+
+        describe('power-of-2, Code checks if number is a power of 2 (I cheated - looked at the solution)', () => {
+            const solver = require('./5.5. Debugger/power-of-2');
+            testRunner(tests, solver);
+        });
+    });
+
+    describe('Problem 5.6. Conversion', () => {
+        const tests = [
+            {input: [2, 3], output: 1},
+            {input: [29, 15], output: 2},
+        ];
+
+        describe('xor-count, Apply XOR and count 1s', () => {
+            const solver = require('./5.6. Conversion/xor-count');
+            testRunner(tests, solver);
+        });
+    });
+
     // describe('Problem 4.2. Minimal Tree', () => {
     //     const tests = [
     //         {input: [[1, 2, 3, 4]], output: [3, 2, 4, 1]},
