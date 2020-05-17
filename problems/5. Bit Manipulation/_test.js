@@ -1,5 +1,5 @@
 const {describe} = require('mocha');
-// const assertTypes = require('../../helpers/assert-types');
+const assertTypes = require('../../helpers/assert-types');
 const testRunner = require('../../helpers/test-runner');
 
 // const {
@@ -52,6 +52,24 @@ describe('Chapter 5. Bit Manipulation', () => {
             testRunner(tests, solver);
         });
     });
+
+    describe('Problem 5.4. Next Number', () => {
+        const tests = [
+            {input: [3], output: [null, null]},
+            {input: [22], output: [25, 21]},
+            {input: [13948], output: [13967, 13946]},
+        ];
+
+        const options = {
+            compareType: assertTypes.deepEqual,
+        };
+
+        describe('brute-force, Brute force approach, find next/prev number with same # of 1s/0s in bit string', () => {
+            const solver = require('./5.4. Next Number/brute-force-string');
+            testRunner(tests, solver, options);
+        });
+    });
+
     // describe('Problem 4.2. Minimal Tree', () => {
     //     const tests = [
     //         {input: [[1, 2, 3, 4]], output: [3, 2, 4, 1]},
