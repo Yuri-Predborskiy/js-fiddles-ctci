@@ -96,6 +96,17 @@ describe('Chapter 5. Bit Manipulation', () => {
         });
     });
 
+    describe('Problem 5.7. Pairwise Swap', () => {
+        const tests = [
+            {input: ['1101010010'], output: '1110100001'},
+        ];
+
+        describe('xor-count, Apply XOR and count 1s', () => {
+            const solver = require('./5.7. Pairwise Swap/loop-swap');
+            testRunner(tests, solver);
+        });
+    });
+
     // describe('Problem 4.2. Minimal Tree', () => {
     //     const tests = [
     //         {input: [[1, 2, 3, 4]], output: [3, 2, 4, 1]},
