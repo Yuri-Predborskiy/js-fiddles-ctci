@@ -64,6 +64,27 @@ describe('Chapter 8. Recursion and Dynamic Programming', () => {
         });
     });
 
+    describe('Problem 8.3. Magic Index, including follow-up', () => {
+        const tests = [
+            {input: [[0,2,3,4,5,6,7]], output: 0},
+            {input: [[1,2,3,4,5,6,7]], output: null},
+            {input: [[-11,-9,-5,-2,4,6,8]], output: 4},
+            {input: [[]], output: null},
+            {input: [[-1,0,0,0,0,1,1,1,1,9,15,20,50,60]], output: 9},
+            {input: [[-1,0,0,0,0,1,1,1,1,1,10,10,10,10,15]], output: 10},
+            {input: [[-10,-5,2,2,2,3,4,8,9,12,13]], output: 2},
+        ];
+
+        describe('brute-force, Pass over the array and find magic index if it exists', () => {
+            const solver = require('./8.3. Magic Index/brute-force');
+            testRunner(tests, solver);
+        });
+        describe('double-binary-search, Use binary search in both directions to find magic index', () => {
+            const solver = require('./8.3. Magic Index/double-binary-search');
+            testRunner(tests, solver);
+        });
+    });
+
     // describe('Problem 5.2. Binary to String', () => {
     //     const tests = [
     //         {input: [0.75], output: '0.11'},
