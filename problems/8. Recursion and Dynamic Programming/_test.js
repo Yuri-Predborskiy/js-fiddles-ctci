@@ -1,5 +1,5 @@
 const {describe} = require('mocha');
-// const assertTypes = require('../../helpers/assert-types');
+const assertTypes = require('../../helpers/assert-types');
 const testRunner = require('../../helpers/test-runner');
 
 // const {
@@ -20,9 +20,47 @@ describe('Chapter 8. Recursion and Dynamic Programming', () => {
             {input: [5], output: 13},
         ];
 
-        describe('dp-memoization, Count paths to each point in dp table and sum reachable positions', () => {
-            const solver = require('./8.1 Triple Step/dp-iterative');
+        describe('dp-iterative, Count paths to each point in dp table and sum reachable positions', () => {
+            const solver = require('./8.1. Triple Step/dp-iterative');
             testRunner(tests, solver);
+        });
+    });
+
+    describe('Problem 8.2. Triple Step', () => {
+        const tests = [
+            {input: [[[1,1], [1,1]]], output: '0:0,1:0,1:1'},
+            {input: [[[1,0], [1,1]]], output: '0:0,1:0,1:1'},
+            {input: [[[1,1], [0,1]]], output: '0:0,0:1,1:1'},
+            {input: [[[1,0], [0,1]]], output: ''},
+            {
+                input: [[
+                    [1,1,1],
+                    [1,0,1],
+                    [1,1,1]
+                ]],
+                output: '0:0,1:0,2:0,2:1,2:2' // go down, go right
+            },
+            {
+                input: [[
+                    [1,1,1],
+                    [1,0,1],
+                    [1,0,1]
+                ]],
+                output: '0:0,0:1,0:2,1:2,2:2' // go right, go down
+            },
+        ];
+
+        const options = {
+            compareType: assertTypes.deepEqual,
+        };
+
+        describe('dfs, Find a path using DFS and return nodes visited', () => {
+            const solver = require('./8.2. Robot in a Grid/dfs');
+            testRunner(tests, solver, options);
+        });
+        describe('bfs, Find the shortest path using BFS and return nodes visited', () => {
+            const solver = require('./8.2. Robot in a Grid/bfs');
+            testRunner(tests, solver, options);
         });
     });
 

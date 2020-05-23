@@ -31,5 +31,5 @@ module.exports = function tripleStep(n) {
         }
         dp[i] = stepsTotal;
     }
-    return dp[n]
+    return dp[n];
 };
