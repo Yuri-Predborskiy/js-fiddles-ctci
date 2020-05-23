@@ -85,6 +85,33 @@ describe('Chapter 8. Recursion and Dynamic Programming', () => {
         });
     });
 
+    describe('Problem 8.4. Power Set', () => {
+        const tests = [
+            {input: ['a'], output: [[], ['a']]},
+            {input: [[1,2]], output: [[], [1],[2],[1,2]]},
+            {input: [['a','b','c']], output: [[], ['a'],['b'],['c'],['a','b'],['a','c'],['b','c'],['a','b','c']]},
+            {
+                input: [[1,2,3,4]],
+                output: [
+                    [],
+                    [1],[2],[3],[4],
+                    [1,2],[1,3],[1,4],[2,3],[2,4],[3,4],
+                    [1,2,3],[1,2,4],[1,3,4],[2,3,4],
+                    [1,2,3,4]
+                ]
+            },
+        ];
+
+        const options = {
+            compareType: assertTypes.sameDeepMembers,
+        };
+
+        describe('iterative, For input set, find all combinations of elements', () => {
+            const solver = require('./8.4. Power Set/iterative');
+            testRunner(tests, solver, options);
+        });
+    });
+
     // describe('Problem 5.2. Binary to String', () => {
     //     const tests = [
     //         {input: [0.75], output: '0.11'},

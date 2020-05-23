@@ -5,5 +5,5 @@
 module.exports = {
     equal: 'equal',
     deepEqual: 'deepEqual',
-    sameMembers: 'sameMembers',
+    sameDeepMembers: 'sameDeepMembers',
 };
