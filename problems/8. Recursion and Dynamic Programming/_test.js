@@ -131,6 +131,66 @@ describe('Chapter 8. Recursion and Dynamic Programming', () => {
         });
     });
 
+    describe('Problem 8.6. Towers of Hanoi', () => {
+        const tests = [
+            {
+                input: [1],
+                output: [
+                    "move disk 1 from a to c"
+                ]
+            },
+            {
+                input: [2],
+                output: [
+                    "move disk 1 from a to b",
+                    "move disk 2 from a to c",
+                    "move disk 1 from b to c"
+                ]
+            },
+            {
+                input: [3],
+                output: [
+                    "move disk 1 from a to c",
+                    "move disk 2 from a to b",
+                    "move disk 1 from c to b",
+                    "move disk 3 from a to c",
+                    "move disk 1 from b to a",
+                    "move disk 2 from b to c",
+                    "move disk 1 from a to c"
+                ]
+            },
+            {
+                input: [4], 
+                output: [
+                    'move disk 1 from a to b',
+                    'move disk 2 from a to c',
+                    'move disk 1 from b to c',
+                    'move disk 3 from a to b',
+                    'move disk 1 from c to a',
+                    'move disk 2 from c to b',
+                    'move disk 1 from a to b',
+                    'move disk 4 from a to c',
+                    'move disk 1 from b to c',
+                    'move disk 2 from b to a',
+                    'move disk 1 from c to a',
+                    'move disk 3 from b to c',
+                    'move disk 1 from a to b',
+                    'move disk 2 from a to c',
+                    'move disk 1 from b to c'
+                ]
+            },
+        ];
+
+        const options = {
+            compareType: assertTypes.deepEqual,
+        };
+
+        describe('iterative, Find all permutations of a string of unique characters', () => {
+            const solver = require('./8.6. Towers of Hanoi/recursion');
+            testRunner(tests, solver, options);
+        });
+    });
+
     describe('Problem 8.7. Permutations without Dups', () => {
         const tests = [
             {input: ['a'], output: ['a']},
