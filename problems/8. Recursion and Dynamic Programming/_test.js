@@ -131,6 +131,23 @@ describe('Chapter 8. Recursion and Dynamic Programming', () => {
         });
     });
 
+    describe('Problem 8.7. Permutations without Dups', () => {
+        const tests = [
+            {input: ['a'], output: ['a']},
+            {input: ['ab'], output: ['ab','ba']},
+            {input: ['abc'], output: ['abc','acb','bac','bca','cab','cba']},
+        ];
+
+        const options = {
+            compareType: assertTypes.sameDeepMembers,
+        };
+
+        describe('iterative, Find all permutations of a string of unique characters', () => {
+            const solver = require('./8.7. Permutations without Dups/iterative');
+            testRunner(tests, solver, options);
+        });
+    });
+
     // describe('Problem 5.2. Binary to String', () => {
     //     const tests = [
     //         {input: [0.75], output: '0.11'},
