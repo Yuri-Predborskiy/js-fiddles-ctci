@@ -112,6 +112,25 @@ describe('Chapter 8. Recursion and Dynamic Programming', () => {
         });
     });
 
+    describe('Problem 8.5. Recursive Multiply', () => {
+        const tests = [
+            {input: [2,2], output: 4},
+            {input: [1,1], output: 1},
+            {input: [12345,0], output: 0},
+            {input: [16,16], output: 256},
+            {input: [31,35], output: 1085},
+        ];
+
+        describe('brute-force, Linear addition as multiplication, easy to code, can be optimized', () => {
+            const solver = require('./8.5. Recursive Multiply/brute-force');
+            testRunner(tests, solver);
+        });
+        describe('recursive, Break up smaller sum into halves till you reach 1, then just add up at each stage', () => {
+            const solver = require('./8.5. Recursive Multiply/recursive');
+            testRunner(tests, solver);
+        });
+    });
+
     // describe('Problem 5.2. Binary to String', () => {
     //     const tests = [
     //         {input: [0.75], output: '0.11'},
