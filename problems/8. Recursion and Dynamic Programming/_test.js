@@ -26,7 +26,7 @@ describe('Chapter 8. Recursion and Dynamic Programming', () => {
         });
     });
 
-    describe('Problem 8.2. Triple Step', () => {
+    describe('Problem 8.2. Robot in a Grid', () => {
         const tests = [
             {input: [[[1,1], [1,1]]], output: '0:0,1:0,1:1'},
             {input: [[[1,0], [1,1]]], output: '0:0,1:0,1:1'},
@@ -204,6 +204,10 @@ describe('Chapter 8. Recursion and Dynamic Programming', () => {
 
         describe('iterative, Find all permutations of a string of unique characters', () => {
             const solver = require('./8.7. Permutations without Dups/iterative');
+            testRunner(tests, solver, options);
+        });
+        describe('iterative-list, Find all permutations of a string of unique characters using linked list', () => {
+            const solver = require('./8.7. Permutations without Dups/iterative-list');
             testRunner(tests, solver, options);
         });
     });

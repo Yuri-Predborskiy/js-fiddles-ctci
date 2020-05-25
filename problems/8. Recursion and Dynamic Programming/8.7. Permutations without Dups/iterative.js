@@ -8,18 +8,7 @@ Divide and conquer? Dynamic programming?
 Iterative solution using stack. At each point we create a new string and a new set based on existing items
 Then we add one item to the string and add it to set. Skip it if it is already in the set.
 
-Possible optimization:
-Use two linked lists
-First list will keep remaining characters
-Second list will keep current permutation
-Two new lists are created at each step to keep remaining characters and current permutation isolated from other lists
-Improvement:
-- we don't need to iterate over input string each time we add next letter
-- we don't need a set to keep track of added items
-- we don't need to create a new string every time
-Drawbacks: more complex solution
-
-Time complexity: O(n!)
+Time complexity: O(n! * n)
 Space complexity: O(n!)
  */
 

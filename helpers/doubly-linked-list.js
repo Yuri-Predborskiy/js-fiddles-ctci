@@ -20,6 +20,11 @@ DoublyLinkedList.prototype.appendAtHead = function(value) {
     this.size++;
 };
 
+/**
+ * Append value at the end of doubly linked list (node is created automatically)
+ * @param value {*}
+ * @returns {void}
+ */
 DoublyLinkedList.prototype.appendAtTail = function(value) {
     const node = new ListNode(value);
     if (this.tail) {
@@ -58,6 +63,23 @@ DoublyLinkedList.prototype.getAtTail = function() {
 
 DoublyLinkedList.prototype.getSize = function() {
     return this.size;
+};
+
+/**
+ * Makes a clone of the list. Optionally skips one node
+ * @param [nodeToSkip] {ListNode}
+ * @returns {DoublyLinkedList}
+ */
+DoublyLinkedList.prototype.clone = function(nodeToSkip) {
+    const list = new DoublyLinkedList();
+    let node = this.head;
+    while (node) {
+        if (node !== nodeToSkip) {
+            list.appendAtTail(node.val);
+        }
+        node = node.next;
+    }
+    return list;
 };
 
 module.exports = DoublyLinkedList;
