@@ -1,5 +1,5 @@
 /*
-Calculate all permutations of a string that does not contain duplicates
+Calculate all permutations of a string that may contain duplicates
 The problem: need to build all possible orders of items
 Solution: create a linked list of remaining elements and a linked list of added elements
 Remove items from linked list of remaining items when adding an item to the list of added items
@@ -18,7 +18,7 @@ const LinkedList = require('../../../helpers/doubly-linked-list');
  * @param string {string}
  * @returns {string[]}
  */
-module.exports = function permutationsWithoutDups(string) {
+module.exports = function permutationsWithDups(string) {
     function createStringFromList(list) {
         let node = list.getAtHead();
         let res = [];
@@ -29,9 +29,8 @@ module.exports = function permutationsWithoutDups(string) {
         return res.join('');
     }
 
-    const results = [];
     if (string.length < 1) {
-        return results;
+        return [];
     }
 
     const list = new LinkedList();
@@ -39,23 +38,25 @@ module.exports = function permutationsWithoutDups(string) {
         list.appendAtTail(char);
     }
     const stack = [[list, new LinkedList()]];
+    const resultSet = new Set();
 
     while (stack.length > 0) {
         let [remainingChars, charList] = stack.pop();
         if (remainingChars.size === 0) {
-            results.push(createStringFromList(charList));
+            const string = createStringFromList(charList);
+            resultSet.add(string);
             continue;
         }
 
         let remainingCharNode = remainingChars.getAtHead();
         while (remainingCharNode) {
-            const cloneWithoutNode = remainingChars.clone(remainingCharNode);
+            const remainingCharsWithoutCurrentCharList = remainingChars.clone(remainingCharNode);
             const charListClone = charList.clone();
             charListClone.appendAtTail(remainingCharNode.val);
-            stack.push([cloneWithoutNode, charListClone]);
+            stack.push([remainingCharsWithoutCurrentCharList, charListClone]);
             remainingCharNode = remainingCharNode.next;
         }
     }
 
-    return results;
+    return new Array(...resultSet.values());
 };
