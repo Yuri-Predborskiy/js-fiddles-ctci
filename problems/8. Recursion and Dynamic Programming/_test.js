@@ -267,10 +267,10 @@ describe('Chapter 8. Recursion and Dynamic Programming', () => {
             const solver = require('./8.9. Parens/iterative');
             testRunner(tests, solver, options);
         });
-        // describe('recursive, Iteratively find all valid combinations of parens given n', () => {
-        //     const solver = require('./8.9. Parens/recursive');
-        //     testRunner(tests, solver, options);
-        // });
+        describe('recursive, Iteratively find all valid combinations of parens given n', () => {
+            const solver = require('./8.9. Parens/recursive');
+            testRunner(tests, solver, options);
+        });
     });
 
 });

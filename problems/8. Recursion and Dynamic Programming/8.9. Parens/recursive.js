@@ -3,7 +3,7 @@ Calculate all valid combinations of parentheses
 All open p's should be closed and all closing p's should be opened prior to that
 Number of pairs should match n
 
-Iterative solution
+Recursive solution
 Start with one opening parenthesis
 At each step make a choice - either close one parenthesis (if open > 0) or open a new one (if open < n)
 
@@ -17,28 +17,20 @@ Space complexity: O(2^2n)
  * @returns {string[]}
  */
 module.exports = function parens(n) {
-    const results = [];
-    if (n < 1) {
-        return results;
-    }
-
-    const stack = [[['('], 1, 0]];
-    while (stack.length > 0) {
-        const [combination, open, closed] = stack.pop();
-        if (combination.length === n * 2) {
-            results.push(combination.join(''));
-            continue;
+    function addParen(combo, open, closed) {
+        if (combo.length === n * 2) {
+            results.push(combo);
+            return;
         }
         if (closed < open) {
-            const combo = combination.slice();
-            combo.push(')');
-            stack.push([combo, open, closed + 1]);
+            addParen(combo + ')', open, closed + 1);
         }
         if (open < n) {
-            combination.push('(');
-            stack.push([combination, open + 1, closed]);
+            addParen(combo + '(', open + 1, closed);
         }
     }
 
+    const results = [];
+    addParen('(', 1, 0);
     return results;
 };
