@@ -3,10 +3,9 @@ Paint fill
 Given a 2-dimensional array of colors and a point, fill all neighbouring points that have the same color as
     start point with new color
 
-This is an iterative solution using DFS (depth first search) based on a stack
-We start with starting pixel, check if neighbour nodes have the same color, if they do, push them to stack.
-For every item in the stack: if it is not visited, replace color, mark node as visited, push neighbours to stack
-    If item has been visited before, or has a different color, skip it.
+This is a recursive solution using DFS (depth first search)
+We start with starting pixel, paint it and recursively check and paint every neighbour pixel
+If neighbour exists within image, is not visited, has same color as starting pixel, paint it. Then check neighbours
 
 Primary difference between DFS and BFS:
     DFS takes next item from top of the stack, resulting in going deep first.
@@ -28,32 +27,24 @@ Space complexity: O(n*m) for stack or queue of neighbors
  * @returns {number[][]}         Updated image
  */
 module.exports = function paintFill(image, start, color) {
+    function paint(row, col, visited) {
+        if (
+            row >= 0 && col >= 0 && row < image.length && col < image[0].length
+            && image[row][col] === startColor
+            && !visited.has(row * image[0].length + col)
+        ) {
+            image[row][col] = color;
+            paint(row, col + 1);
+            paint(row + 1, col);
+            paint(row, col - 1);
+            paint(row - 1, col);
+        }
+    }
+
     const startColor = image[start[0]][start[1]];
-    if (startColor === color) {
-        return image;
+    if (startColor !== color) {
+        paint(start[0], start[1], new Set());
     }
 
-    const stack = [start];
-    const visited = new Set();
-    const clockwise = [[0, 1], [1, 0], [0, -1], [-1, 0]];
-
-    while (stack.length > 0) {
-        let [row, col] = stack.pop();
-        if (visited.has(row * image[0].length + col)) {
-            continue;
-        }
-
-        visited.add(row * image[0].length + col);
-        image[row][col] = color;
-        for (const [rs, cs] of clockwise) {
-            const newRow = row + rs, newCol = col + cs;
-            if (newRow >= 0 && newRow < image.length
-                && newCol >= 0 && newCol < image[0].length
-                && image[newRow][newCol] === startColor
-            ) {
-                stack.push([newRow, newCol]);
-            }
-        }
-    }
     return image;
 };

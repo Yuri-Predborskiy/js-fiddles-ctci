@@ -315,12 +315,16 @@ describe('Chapter 8. Recursion and Dynamic Programming', () => {
             compareType: assertTypes.deepEqual,
         };
 
-        describe('bfs, Fill the image using queue (bfs, iteration)', () => {
+        describe('bfs, Fill the image using BFS algorithm based on queue', () => {
             const solver = require('./8.10. Paint Fill/bfs');
             testRunner(tests, solver, options);
         });
-        describe('dfs, Find a path using DFS and return nodes visited', () => {
+        describe('dfs, Fill the image using DFS algorithm based on stack', () => {
             const solver = require('./8.10. Paint Fill/dfs');
+            testRunner(tests, solver, options);
+        });
+        describe('dfs-recursion, Fill the image using DFS algorithm, visit all pixels recursively', () => {
+            const solver = require('./8.10. Paint Fill/dfs-recursion');
             testRunner(tests, solver, options);
         });
     });
