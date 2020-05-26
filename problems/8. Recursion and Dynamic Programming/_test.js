@@ -273,4 +273,55 @@ describe('Chapter 8. Recursion and Dynamic Programming', () => {
         });
     });
 
+    describe('Problem 8.10. Paint fill', () => {
+        const tests = [
+            {
+                input: [[
+                    [1,1,1],
+                    [1,0,1],
+                    [1,1,1]
+                ], [0,0], 3],
+                output: [
+                    [3,3,3],
+                    [3,0,3],
+                    [3,3,3]
+                ]
+            },
+            {
+                input: [[
+                    [1,2,1],
+                    [3,0,1],
+                    [1,1,1]
+                ], [0,0], 3],
+                output: [
+                    [3,2,1],
+                    [3,0,1],
+                    [1,1,1]
+                ]
+            },
+            {
+                input: [[
+                    [1,2,1,2],
+                    [1,1,1,0]
+                ], [1,2], 4],
+                output: [
+                    [4,2,4,2],
+                    [4,4,4,0]
+                ]
+            }
+        ];
+
+        const options = {
+            compareType: assertTypes.deepEqual,
+        };
+
+        describe('bfs, Fill the image using queue (bfs, iteration)', () => {
+            const solver = require('./8.10. Paint Fill/bfs');
+            testRunner(tests, solver, options);
+        });
+        // describe('dfs, Find a path using DFS and return nodes visited', () => {
+        //     const solver = require('./8.2. Robot in a Grid/dfs');
+        //     testRunner(tests, solver, options);
+        // });
+    });
 });
