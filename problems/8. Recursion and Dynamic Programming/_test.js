@@ -319,9 +319,9 @@ describe('Chapter 8. Recursion and Dynamic Programming', () => {
             const solver = require('./8.10. Paint Fill/bfs');
             testRunner(tests, solver, options);
         });
-        // describe('dfs, Find a path using DFS and return nodes visited', () => {
-        //     const solver = require('./8.2. Robot in a Grid/dfs');
-        //     testRunner(tests, solver, options);
-        // });
+        describe('dfs, Find a path using DFS and return nodes visited', () => {
+            const solver = require('./8.10. Paint Fill/dfs');
+            testRunner(tests, solver, options);
+        });
     });
 });

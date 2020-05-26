@@ -3,16 +3,14 @@ Paint fill
 Given a 2-dimensional array of colors and a point, fill all neighbouring points that have the same color as
     start point with new color
 
-This is an iterative solution using BFS (breadth first search) based on a queue
-We start with starting pixel, check if neighbour nodes have the same color, if they do, enqueue them.
-For every item in the queue: if it is not visited, replace color, mark node as visited, enqueue neighbours
+This is an iterative solution using BFS (breadth first search) based on a stack
+We start with starting pixel, check if neighbour nodes have the same color, if they do, push them to stack.
+For every item in the stack: if it is not visited, replace color, mark node as visited, push neighbours to stack
     If item has been visited before, or has a different color, skip it.
 
 Time complexity: O(n*m) where n and m are width and height of the image (we may need to visit every point)
 Space complexity: O(n*m) for stack or queue of neighbors
  */
-
-const Queue = require('../../../helpers/queue');
 
 /**
  * Replace starting color with new color in an image
@@ -27,13 +25,12 @@ module.exports = function paintFill(image, start, color) {
         return image;
     }
 
-    const queue = new Queue();
-    queue.enqueue(start);
+    const stack = [start];
     const visited = new Set();
     const clockwise = [[0, 1], [1, 0], [0, -1], [-1, 0]];
 
-    while (!queue.isEmpty()) {
-        let [row, col] = queue.dequeue();
+    while (stack.length > 0) {
+        let [row, col] = stack.pop();
         if (visited.has(row * image[0].length + col)) {
             continue;
         }
@@ -46,7 +43,7 @@ module.exports = function paintFill(image, start, color) {
                 && newCol >= 0 && newCol < image[0].length
                 && image[newRow][newCol] === startColor
             ) {
-                queue.enqueue([newRow, newCol]);
+                stack.push([newRow, newCol]);
             }
         }
     }
