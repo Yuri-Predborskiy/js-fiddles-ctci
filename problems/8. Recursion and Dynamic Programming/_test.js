@@ -366,4 +366,18 @@ describe('Chapter 8. Recursion and Dynamic Programming', () => {
             testRunner(tests, solver);
         });
     });
+
+    describe('Problem 8.12. Eight Queens', () => {
+        const tests = [
+            {
+                input: [8],
+                output: 92
+            }
+        ];
+
+        describe('backtracking, Try to put a queen into every slot, backtracking algorithm', () => {
+            const solver = require('./8.12. Eight Queens/backtracking');
+            testRunner(tests, solver);
+        });
+    });
 });
