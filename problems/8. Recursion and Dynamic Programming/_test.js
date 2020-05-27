@@ -328,4 +328,42 @@ describe('Chapter 8. Recursion and Dynamic Programming', () => {
             testRunner(tests, solver, options);
         });
     });
+
+    describe('Problem 8.11. Coins', () => {
+        const tests = [
+            {
+                input: [0],
+                output: 0
+            },
+            {
+                input: [4],
+                output: 1
+            },
+            {
+                input: [5],
+                output: 2
+            },
+            {
+                input: [11],
+                output: 4
+            },
+            {
+                input: [43],
+                output: 31
+            },
+            {
+                input: [1000],
+                output: 142511
+            }
+        ];
+
+        describe('brute-force, Using 3 loops, try all coin combinations and increase count', () => {
+            const solver = require('./8.11. Coins/brute-force');
+            testRunner(tests, solver);
+        });
+        describe('dp, Find number of combinations using dynamic programming and 2-dimensional array', () => {
+            const solver = require('./8.11. Coins/dp');
+            testRunner(tests, solver);
+        });
+    });
 });
