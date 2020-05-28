@@ -410,4 +410,17 @@ describe('Chapter 8. Recursion and Dynamic Programming', () => {
             testRunner(tests, solver);
         });
     });
+
+    describe('Problem 8.14. Boolean Evaluation', () => {
+        const tests = [
+            {input: ['0^0&0^1|1', true], output: 10},
+            {input: ['1^0|0|1', false], output: 2},
+            {input: ['0&0&0&1^1|0', true], output: 10},
+        ];
+
+        describe('brute-recurse, Brute force using recursion, try everything and count results', () => {
+            const solver = require('./8.14. Boolean Evaluation/brute-recurse');
+            testRunner(tests, solver);
+        });
+    });
 });
