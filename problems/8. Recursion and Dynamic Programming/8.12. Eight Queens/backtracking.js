@@ -17,10 +17,6 @@ https://medium.com/@jmohon1986/timeout-the-story-of-n-queens-time-complexity-c80
  * @returns {number}
  */
 module.exports = function eightQueens(number) {
-    // try to set a queen
-    // check if another queen is already on this row, col or diagonal
-    // row is in occupiedRow[col] which returns row where queen resides
-
     function placeQueen(row, columns) {
         if (row === number) {
             results.push(columns.slice());
@@ -53,9 +49,7 @@ module.exports = function eightQueens(number) {
     }
     const results = [];
 
-    // for (let i = 0; i >= number; i--) {
-        placeQueen(0, new Array(number).fill(-1));
-    // }
+    placeQueen(0, new Array(number).fill(-1));
 
     return results.length;
 };
