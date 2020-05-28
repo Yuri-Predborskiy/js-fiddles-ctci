@@ -380,4 +380,34 @@ describe('Chapter 8. Recursion and Dynamic Programming', () => {
             testRunner(tests, solver);
         });
     });
+
+    describe('Problem 8.13. Stack of Boxes', () => {
+        const tests = [
+            {
+                input: [[]],
+                output: 0
+            },
+            {
+                input: [[[3,3,3]]],
+                output: 3
+            },
+            {
+                input: [[[1,1,1], [2,2,2],[3,3,3]]],
+                output: 6
+            },
+            {
+                input: [[[2,2,1], [2,3,1],[3,3,3]]],
+                output: 4
+            },
+            {
+                input: [[[1,2,2], [3,3,4], [2,3,5], [7,7,7]]],
+                output: 14 // boxes 4, 1, 2
+            }
+        ];
+
+        describe('dp, Sort boxes, then try to put one on another in stacks and return the highest stack', () => {
+            const solver = require('./8.13. Stack of Boxes/dp');
+            testRunner(tests, solver);
+        });
+    });
 });
