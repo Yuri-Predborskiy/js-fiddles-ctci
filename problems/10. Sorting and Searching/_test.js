@@ -47,6 +47,23 @@ describe('Chapter 10. Sorting and Searching', () => {
             testRunner(tests, solver, options);
         });
     });
+
+    describe('Problem 10.3. Search in Rotated Array', () => {
+        const tests = [
+            {input: [[1,2,3,4], 4], output: 3},
+            {input: [[3,4,1,2], 4], output: 1},
+            {input: [[2,3,4,1], 4], output: 2},
+            {input: [[4,1,2,3], 4], output: 0},
+            {input: [[4,1,2,3], 5], output: -1},
+            {input: [[1,2,3,4], 5], output: -1},
+            {input: [[2,3,4,1], 5], output: -1},
+        ];
+
+        describe('binary-search, Find shift using binary search, find target using binary search and shift', () => {
+            const solver = require('./10.3. Search in Rotated Array/binary-search');
+            testRunner(tests, solver);
+        });
+    });
     //
     // describe('Problem 8.2. Robot in a Grid', () => {
     //     const tests = [
