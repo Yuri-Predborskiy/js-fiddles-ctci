@@ -28,6 +28,25 @@ describe('Chapter 10. Sorting and Searching', () => {
             testRunner(tests, solver, options);
         });
     });
+
+    describe('Problem 10.2. Group Anagrams', () => {
+        const tests = [
+            {input: [['listen','banana','silent']], output: ['listen','silent','banana']},
+            {
+                input: [['den', 'banana', 'end', 'dene', 'ask', 'need', 'ned', 'ska', 'jeep']],
+                output: ['den', 'end', 'ned', 'banana', 'dene', 'need', 'ask', 'ska', 'jeep']
+            },
+        ];
+
+        const options = {
+            compareType: assertTypes.deepEqual,
+        };
+
+        describe('sort-hash, Sort words, save sorted into hash, use hash to build result', () => {
+            const solver = require('./10.2. Group Anagrams/sort-hash');
+            testRunner(tests, solver, options);
+        });
+    });
     //
     // describe('Problem 8.2. Robot in a Grid', () => {
     //     const tests = [
