@@ -12,6 +12,12 @@ Solution has been inspired by CTCI solutions
 
 Time complexity: O(log(n))
 Space complexity: O(1)
+
+--- alternative solution ---
+There are two less efficient alternatives to current solution:
+1. Perform a binary search to find the upper bounds. This will take a few extra searches to find the right limit of
+    the collection so that we can perform "normal" binary search.
+2. Naive solution: normal search through the collection using O(n) time.
  */
 
 /**
