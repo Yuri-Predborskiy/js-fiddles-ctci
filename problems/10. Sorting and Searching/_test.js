@@ -64,6 +64,23 @@ describe('Chapter 10. Sorting and Searching', () => {
             testRunner(tests, solver);
         });
     });
+
+    describe('Problem 10.4. Sorted Search, No Size', () => {
+        const tests = [
+            {input: [[1,2,3,4], 4], output: 3},
+            {input: [[1,2,3,4], 1], output: 0},
+            {input: [[1,2,5,6], 2], output: 1},
+            {input: [[1,2,3,4], 8], output: -1},
+            {input: [[3,4,5,6], 1], output: -1},
+            {input: [[1,2,5,6], 4], output: -1},
+            {input: [[], 4], output: -1},
+        ];
+
+        describe('binary-search, Find some maximum index and do binary search, treating -1 as "too large"', () => {
+            const solver = require('./10.4. Sorted Search, No Size/binary-search');
+            testRunner(tests, solver);
+        });
+    });
     //
     // describe('Problem 8.2. Robot in a Grid', () => {
     //     const tests = [
