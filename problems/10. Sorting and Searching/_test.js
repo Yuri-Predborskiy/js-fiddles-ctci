@@ -81,6 +81,23 @@ describe('Chapter 10. Sorting and Searching', () => {
             testRunner(tests, solver);
         });
     });
+
+    describe('Problem 10.5. Sparse Search', () => {
+        const tests = [
+            {input: [['at','','','','ball','','','','','','car','','','','dad','',''], 'ball'], output: 4},
+            {input: [['','','','','','','','','','','','','','','','','bat'], 'bat'], output: 16},
+            {input: [['at','','','','','','','','','','','','','','','',''], 'at'], output: 0},
+            {input: [['','','','','','','','','','','','','','','','','bat'], 'dat'], output: -1},
+            {input: [['bat','','','','','','','','','','','','','','','',''], 'kat'], output: -1},
+            {input: [['at','','','','ball','','','','','','car','','','','dad','',''], 'cat'], output: -1},
+        ];
+
+        describe('binary-search, If mid is empty string, iterate through input to find a string', () => {
+            const solver = require('./10.5. Sparse Search/binary-search');
+            testRunner(tests, solver);
+        });
+    });
+
     //
     // describe('Problem 8.2. Robot in a Grid', () => {
     //     const tests = [
