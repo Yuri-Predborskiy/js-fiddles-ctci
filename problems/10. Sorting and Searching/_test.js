@@ -98,6 +98,43 @@ describe('Chapter 10. Sorting and Searching', () => {
         });
     });
 
+    describe('Problem 10.9. Sorted Matrix Search', () => {
+        const tests = [
+            {
+                input: [
+                    [
+                        [15,20,40,85],
+                        [20,35,80,95],
+                        [30,55,95,105],
+                        [40,80,100,120],
+                    ],
+                    55
+                ],
+                output: [2,1]
+            },
+            {
+                input: [
+                    [
+                        [15,20,40,85],
+                        [20,35,80,95],
+                        [30,55,95,105],
+                        [40,80,100,120],
+                    ],
+                    333
+                ],
+                output: [-1,-1]
+            },
+        ];
+
+            const options = {
+                compareType: assertTypes.deepEqual,
+            };
+
+        describe('binary-search, Naive approach - search for target in each row using binary search', () => {
+            const solver = require('./10.9. Sorted Matrix Search/binary-search');
+            testRunner(tests, solver, options);
+        });
+    });
     //
     // describe('Problem 8.2. Robot in a Grid', () => {
     //     const tests = [
