@@ -134,6 +134,10 @@ describe('Chapter 10. Sorting and Searching', () => {
             const solver = require('./10.9. Sorted Matrix Search/binary-search');
             testRunner(tests, solver, options);
         });
+        describe('binary-search-optimized, Optimized version of binary search - skip rows, cols', () => {
+            const solver = require('./10.9. Sorted Matrix Search/binary-search');
+            testRunner(tests, solver, options);
+        });
     });
     //
     // describe('Problem 8.2. Robot in a Grid', () => {
