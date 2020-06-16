@@ -126,9 +126,9 @@ describe('Chapter 10. Sorting and Searching', () => {
             },
         ];
 
-            const options = {
-                compareType: assertTypes.deepEqual,
-            };
+        const options = {
+            compareType: assertTypes.deepEqual,
+        };
 
         describe('binary-search, Naive approach - search for target in each row using binary search', () => {
             const solver = require('./10.9. Sorted Matrix Search/binary-search');
@@ -139,6 +139,29 @@ describe('Chapter 10. Sorting and Searching', () => {
             testRunner(tests, solver, options);
         });
     });
+
+    describe('Problem 10.10. Rank from Stream', () => {
+        const tests = [
+            {input: [[5,1,4,4,5,9,7,13,3], [1,3,4]], output: [0,1,3]},
+            {input: [[20,25,23,24,15,10,5,13], [10,25,15,20,5,3]], output: [1,7,3,4,0,-1]},
+            {input: [[], [1]], output: [-1]},
+            {input: [[1], []], output: []},
+        ];
+
+        const options = {
+            compareType: assertTypes.deepEqual,
+        };
+
+        describe('linear, Keep track of items and check numbers in linear time', () => {
+            const solver = require('./10.10. Rank from Stream/linear');
+            testRunner(tests, solver, options);
+        });
+        // describe('bst, Using binary search tree keep track of numbers when saving them', () => {
+        //     const solver = require('./10.10. Rank from Stream/bst');
+        //     testRunner(tests, solver);
+        // });
+    });
+
     //
     // describe('Problem 8.2. Robot in a Grid', () => {
     //     const tests = [
