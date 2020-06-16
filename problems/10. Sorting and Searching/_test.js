@@ -156,10 +156,10 @@ describe('Chapter 10. Sorting and Searching', () => {
             const solver = require('./10.10. Rank from Stream/linear');
             testRunner(tests, solver, options);
         });
-        // describe('bst, Using binary search tree keep track of numbers when saving them', () => {
-        //     const solver = require('./10.10. Rank from Stream/bst');
-        //     testRunner(tests, solver);
-        // });
+        describe('bst, Using binary search tree keep track of numbers when saving them', () => {
+            const solver = require('./10.10. Rank from Stream/bst');
+            testRunner(tests, solver, options);
+        });
     });
 
     //

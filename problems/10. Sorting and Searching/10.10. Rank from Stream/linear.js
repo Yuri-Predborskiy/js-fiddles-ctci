@@ -9,6 +9,7 @@ Keep track of "number exists" flag. If number does not exist, return -1.
 Time complexity:
 track - O(1)
 getRankOfNumber - O(n)
+Space complexity: O(n)
  */
 
 function StreamRanker() {
