@@ -15,7 +15,6 @@ Space complexity: O(1)
  * @returns {number[]}
  */
 module.exports = function peaksAndValleys(numbers) {
-    // if we don't want to change inputs, we should make a copy of numbers here
     if (numbers.length < 3) {
         return numbers;
     }

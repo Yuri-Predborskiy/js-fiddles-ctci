@@ -157,18 +157,25 @@ describe('Chapter 10. Sorting and Searching', () => {
 
     describe('Problem 10.11. Peaks and Valleys', () => {
         const tests = [
-            {input: [[3,2,1,4,5,6]], output: [2,1,4,3,6,5]},
-            {input: [[]], output: []},
-            {input: [[1]], output: [1]},
-            {input: [[1,2]], output: [1,2]},
+            // oneOf cannot be used to compare arrays, but we can join arrays into strings and compare strings
+            {input: [[3,2,1,4,5,6]], output: ['2,1,4,3,6,5', '2,3,1,5,4,6']},
+            {input: [[]], output: ['']},
+            {input: [[1]], output: ['1']},
+            {input: [[1,2]], output: ['1,2', '2,1']},
         ];
 
         const options = {
-            compareType: assertTypes.deepEqual,
+            processInput: input => [input[0].slice()],
+            processOutput: output => output.join(),
+            compareType: assertTypes.oneOf,
         };
 
         describe('sort-and-swap, Sort items, swap one pair, jump 2 items forward, repeat', () => {
             const solver = require('./10.11. Peaks and Valleys/sort-and-swap');
+            testRunner(tests, solver, options);
+        });
+        describe('plain-swap, Sort items, swap one pair, jump 2 items forward, repeat', () => {
+            const solver = require('./10.11. Peaks and Valleys/plain-swap');
             testRunner(tests, solver, options);
         });
     });

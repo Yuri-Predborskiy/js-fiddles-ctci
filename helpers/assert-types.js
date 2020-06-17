@@ -6,4 +6,5 @@ module.exports = {
     equal: 'equal',
     deepEqual: 'deepEqual',
     sameDeepMembers: 'sameDeepMembers',
+    oneOf: 'oneOf',
 };
